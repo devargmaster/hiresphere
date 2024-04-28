@@ -20,5 +20,7 @@ Route::get('login',[\App\Http\Controllers\LoginController::class, 'login'])->nam
 Route::get('news',[\App\Http\Controllers\NewsController::class, 'news'])->name('news');
 Route::get('profile',[\App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
 Route::get('suscription',[\App\Http\Controllers\SuscriptionSignupController::class, 'suscriptions'])->name('suscription');
-
-Route::post('registro', [\App\Http\Controllers\RegisterController::class, 'store']);
+Route::get('applicant',[\App\Http\Controllers\ApplicantController::class, 'applicant'])->name('applicant');
+Route::get('applicant/{id}/edit', [\App\Http\Controllers\ApplicantController::class, 'edit'])->name('applicant.edit');
+Route::delete('applicant/{id}', [\App\Http\Controllers\ApplicantController::class, 'delete'])->name('applicant.delete');
+Route::post('registro', [\App\Http\Controllers\RegisterController::class, 'store'])->name('register.store');

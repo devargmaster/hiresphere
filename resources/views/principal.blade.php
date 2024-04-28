@@ -8,8 +8,6 @@
         <img src="{{'img/workimage.webp'}}" alt="Buscar Trabajo" class="shadow-lg border border-gray-200 rounded-lg transition-transform hover:scale-x-105 duration-300">
 
 
-
-
         <h2 class="text-2xl font-bold">¿Cómo funciona?</h2>
         <p class="mb-6 w-8/12">En HireSphere, conectamos talento con oportunidad. Explora miles de ofertas, sube tu currículum y deja que
             las mejores empresas te encuentren, y suscribiendote al plan premium obtendras mas beneficios.

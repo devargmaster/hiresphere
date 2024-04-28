@@ -13,7 +13,7 @@ class ApplicantSeeder extends Seeder
      */
     public function run(): void
     {
-    DB::table('applicant')->insert([
+    DB::table('applicants')->insert([
         [
             'name' => 'John Doe',
             'email' => 'walter@ggg.com',

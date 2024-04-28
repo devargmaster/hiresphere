@@ -5,7 +5,10 @@
         <h1 class="text-4xl font-bold mt-6 mb-2">Bienvenido a HireSphere</h1>
         <p class="text-xl mb-4">Tu portal para las oportunidades laborales más atractivas del mercado.</p>
 
-        <img src="https://via.placeholder.com/600x300" alt="Buscar Trabajo" class="mb-6">
+        <img src="{{'img/workimage.webp'}}" alt="Buscar Trabajo" class="shadow-lg border border-gray-200 rounded-lg transition-transform hover:scale-x-105 duration-300">
+
+
+
 
         <h2 class="text-2xl font-bold">¿Cómo funciona?</h2>
         <p class="mb-6 w-8/12">En HireSphere, conectamos talento con oportunidad. Explora miles de ofertas, sube tu currículum y deja que las mejores empresas te encuentren.</p>

@@ -8,6 +8,6 @@ class SuscriptionSignupController extends Controller
 {
     public function suscriptions()
     {
-        return view('/suscription/suscription');
+        return view('suscription.suscription');
     }
 }

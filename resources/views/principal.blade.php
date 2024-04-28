@@ -11,12 +11,14 @@
 
 
         <h2 class="text-2xl font-bold">¿Cómo funciona?</h2>
-        <p class="mb-6 w-8/12">En HireSphere, conectamos talento con oportunidad. Explora miles de ofertas, sube tu currículum y deja que las mejores empresas te encuentren.</p>
+        <p class="mb-6 w-8/12">En HireSphere, conectamos talento con oportunidad. Explora miles de ofertas, sube tu currículum y deja que
+            las mejores empresas te encuentren, y suscribiendote al plan premium obtendras mas beneficios.
+        Si estas buscando los mejores candidatos registrate, y suscribete al plan premium</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
             <div class="bg-white p-4 shadow-lg rounded-lg">
                 <h3 class="text-xl font-bold">Regístrate</h3>
-                <p>Empieza tu búsqueda creando una cuenta en solo minutos.</p>
+                <p>Empieza tu búsqueda creando una cuenta en solo minutos. Elije si eres candidato o reclutador</p>
             </div>
             <div class="bg-white p-4 shadow-lg rounded-lg">
                 <h3 class="text-xl font-bold">Explora Empleos</h3>

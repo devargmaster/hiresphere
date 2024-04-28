@@ -1,8 +1,5 @@
 @extends('components.app')
 
-@section('titulo')
-    Acerca de Nosotros
-@endsection
 
 @section('contenido')
     <div class="md:flex md:flex-col md:justify-center md:items-center text-center">

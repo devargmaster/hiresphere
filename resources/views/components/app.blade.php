@@ -12,11 +12,10 @@
     <div class="container mx-auto flex justify-between items-center">
         <a class="font-bold uppercase text-red-800 " href="/"><h1 class="text-3xl font-black">HireSphere</h1></a>
         <nav class="flex gap-2 items-center">
-            <a class="font-bold uppercase text-red-800 text-sm" href="#">Login</a>
-            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('register') }}">Crear Cuenta
-            </a>
-            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('about') }}">Sobre Nosotros
-            </a>
+            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('news') }}">Novedades</a>
+            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('login') }}">Login</a>
+            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('register') }}">Crear Cuenta</a>
+            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('about') }}">Sobre Nosotros</a>
         </nav>
     </div>
 </header>

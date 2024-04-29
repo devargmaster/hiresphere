@@ -14,15 +14,15 @@
         Si estas buscando los mejores candidatos registrate, y suscribete al plan premium</p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg ml-4 mr-4">
                 <h3 class="text-xl font-bold">Regístrate</h3>
                 <p>Empieza tu búsqueda creando una cuenta en solo minutos. Elije si eres candidato o reclutador</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg ml-4 mr-4">
                 <h3 class="text-xl font-bold">Explora Empleos</h3>
                 <p>Navega por las últimas ofertas de trabajo que se ajustan a tus habilidades y preferencias.</p>
             </div>
-            <div class="bg-white p-4 shadow-lg rounded-lg">
+            <div class="bg-white p-4 shadow-lg rounded-lg ml-4 mr-4">
                 <h3 class="text-xl font-bold">Aplica</h3>
                 <p>Aplica fácilmente a empleos y gestiona tus aplicaciones desde tu perfil.</p>
             </div>

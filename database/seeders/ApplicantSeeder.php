@@ -33,6 +33,26 @@ class ApplicantSeeder extends Seeder
             'user_agent' => '',
             'referrer' => '',
             'applied_at' => '2024-04-28 20:50:13',
+        ],
+        [
+            'name' => 'Walter White',
+            'email' => 'walter@ggg.com',
+            'phone' => '1555555555',
+            'address' => '222 ave st',
+            'city' => 'Anytown',
+            'state' => 'NY',
+            'zip' => '12345',
+            'country' => 'USA',
+            'resume' => 'resume.pdf',
+            'cover_letter' => 'cover_letter.pdf',
+            'job_id' => '1',
+            'status' => 'new',
+            'notes' => 'none',
+            'source' => 'website',
+            'ip_address' => '',
+            'user_agent' => '',
+            'referrer' => '',
+            'applied_at' => '2024-04-29 20:50:13',
         ]
     ]);
     }

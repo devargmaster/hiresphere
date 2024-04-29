@@ -6,25 +6,51 @@
 
     <title>HireSphere</title>
     @vite('resources/css/app.css')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const profileMenu = document.getElementById('profile-menu');
+            const profileLink = document.getElementById('profile-link');
+
+            profileLink.addEventListener('mouseover', () => {
+                profileMenu.style.display = 'block';
+            });
+
+            profileMenu.addEventListener('mouseleave', () => {
+                profileMenu.style.display = 'none';
+            });
+        });
+    </script>
 </head>
 <body class="bg-gray-100">
 <header class="p-5 border-b bg-white shadow">
     <div class="container mx-auto flex justify-between items-center">
-        <div class="flex flex-col items-center"> <!-- Cambia a flex-col para alinear en columna -->
-            <img src="{{'img/logo.png'}}" alt="HireSphere" class="h-12 w-auto mb-2"/> <!-- Ajusta el tamaño según necesario y añade margen abajo -->
-            <h1 class="text-xl font-black uppercase text-red-800">HireSphere</h1> <!-- Ajusta el tamaño del texto si es necesario -->
+        <div class="flex flex-col items-center"><a class="font-bold  text-red-800 text-sm" href="/">
+            <img src="{{'img/logo.png'}}" alt="HireSphere" class="h-18 w-auto mb-2"/>
+            <h1 class="text-xl font-black uppercase text-red-800">HireSphere</h1>
+            </a>
         </div>
         <nav class="flex gap-2 items-center">
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('news') }}">Novedades</a>
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('login') }}">Login</a>
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('register') }}">Crear Cuenta</a>
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('about') }}">Sobre Nosotros</a>
-            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('profile') }}">Perfil</a>
+            <div id="profile-container" class="relative font-bold uppercase text-red-800 text-sm cursor-pointer">
+                <div id="profile-link">
+                    Perfil
+                </div>
+                <div id="profile-menu" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 hidden">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ver Perfil</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar News</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Empleos postulado</a>
+                    <a href="{{ route('applicant') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Listar Candidatos</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Configuración</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Salir</a>
+                </div>
+            </div>
+
         </nav>
     </div>
 </header>
-
-
 <main>
     <h2 class="font-black text-center text-3xl mb-10">
         @yield('titulo')
@@ -34,6 +60,5 @@
 <footer class="mt-10 text-center p-5 text-gray-500 font-bold">
     HireSphere {{ now()->year }} - Todos los derechos reservados
 </footer>
-
 </body>
 </html>

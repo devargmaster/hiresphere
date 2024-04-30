@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[\App\Http\Controllers\HomeController::class, 'home'])->name('home');
-Route::get('registro',[\App\Http\Controllers\RegisterController::class, 'create'])->name('register');
+Route::get('register',[\App\Http\Controllers\RegisterController::class, 'create'])->name('register');
 Route::get('about',[\App\Http\Controllers\HomeController::class, 'about'])->name('about');
 Route::get('login',[\App\Http\Controllers\UserController::class, 'login'])->name('login');
 Route::get('news',[\App\Http\Controllers\NewsController::class, 'news'])->name('news');
@@ -22,5 +22,9 @@ Route::get('profile',[\App\Http\Controllers\ProfileController::class, 'profile']
 Route::get('suscription',[\App\Http\Controllers\SuscriptionSignupController::class, 'suscriptions'])->name('suscription');
 Route::get('applicant',[\App\Http\Controllers\ApplicantController::class, 'applicant'])->name('applicant');
 Route::get('applicant/{id}/edit', [\App\Http\Controllers\ApplicantController::class, 'edit'])->name('applicant.edit');
+Route::get('/admin/news',[\App\Http\Controllers\NewsController::class, 'adminnews'])->name('admin.news');
+
+
 Route::delete('applicant/{id}', [\App\Http\Controllers\ApplicantController::class, 'delete'])->name('applicant.delete');
 Route::post('registro', [\App\Http\Controllers\RegisterController::class, 'store'])->name('register.store');
+

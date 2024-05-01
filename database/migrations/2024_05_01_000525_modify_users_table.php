@@ -14,15 +14,13 @@ class ModifyUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'role')) {
-                $table->renameColumn('role', 'role_id');
+            if (Schema::hasColumn('users', 'role_id')) {
+                $table->dropColumn('role_id');
             }
         });
 
         Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'role_id')) {
-                $table->unsignedBigInteger('role_id')->change();
-            }
+            $table->foreignId('role_id')->constrained()->after('password');
         });
     }
 
@@ -34,15 +32,12 @@ class ModifyUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'role_id')) {
-                $table->renameColumn('role_id', 'role');
-            }
+            $table->dropForeign(['role_id']);
+            $table->dropColumn('role_id');
         });
 
         Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'role')) {
-                $table->string('role')->change();
-            }
+            $table->string('role')->after('password');
         });
     }
 }

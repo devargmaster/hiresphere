@@ -11,13 +11,15 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|confirmed',
+            'role_id' => 'required|exists:roles,id',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'role_id' => $request->role_id,
         ]);
 
         auth()->login($user);

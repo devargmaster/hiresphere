@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminNewsController;
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,9 +24,14 @@ Route::get('profile',[\App\Http\Controllers\ProfileController::class, 'profile']
 Route::get('suscription',[\App\Http\Controllers\SuscriptionSignupController::class, 'suscriptions'])->name('suscription');
 Route::get('applicant',[\App\Http\Controllers\ApplicantController::class, 'applicant'])->name('applicant');
 Route::get('applicant/{id}/edit', [\App\Http\Controllers\ApplicantController::class, 'edit'])->name('applicant.edit');
-Route::get('/admin/news',[\App\Http\Controllers\NewsController::class, 'adminnews'])->name('admin.news');
 
+Route::get('news', [NewsController::class, 'index'])->name('news.index');
 
+Route::prefix('admin')->group(function () {
+    Route::get('/news', [AdminNewsController::class, 'index'])->name('admin.news.index');
+    Route::get('/news/create', [AdminNewsController::class, 'create'])->name('admin.news.create');
+    Route::post('/news', [AdminNewsController::class, 'store'])->name('admin.news.store');
+});
 Route::delete('applicant/{id}', [\App\Http\Controllers\ApplicantController::class, 'delete'])->name('applicant.delete');
 Route::post('registro', [\App\Http\Controllers\RegisterController::class, 'store'])->name('register.store');
 

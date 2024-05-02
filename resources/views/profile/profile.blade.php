@@ -1,6 +1,5 @@
-@extends('components.layout')
-
-@section('contenido')
+<x-layout>
+    <x-slot:title>Perfil</x-slot:title>
     <div class="md:flex md:flex-col md:justify-center md:items-center text-center">
         <h1 class="text-3xl font-bold mt-6 mb-2">Perfil del Usuario</h1>
 
@@ -21,4 +20,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-layout>

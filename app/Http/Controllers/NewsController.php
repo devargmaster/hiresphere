@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\News;
 
 class NewsController extends Controller
 {
-    public function news()
+    public function index()
     {
-        return view('news');
-    }
-    public function adminnews()
-    {
-        return view('admin.news');
+        $news = News::all();
+        return view('news', ['news' => $news]);
     }
 }

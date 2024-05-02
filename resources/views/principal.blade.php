@@ -1,11 +1,12 @@
 <x-layout>
     <x-slot:title>Home</x-slot:title>
     <div class="md:flex md:flex-col md:items-center text-center">
-        <h1 class="text-4xl font-bold mt-6 mb-2">Bienvenido a HireSphere</h1>
-        <p class="text-xl mb-4">Tu portal para las oportunidades laborales más atractivas del mercado.</p>
+        <h1 class="text-4xl font-bold">Bienvenido a HireSphere</h1>
+        <p class="text-xl">Tu portal para las oportunidades laborales más atractivas del mercado.</p>
 
         <img src="{{'img/workimage.webp'}}" alt="Buscar Trabajo"
-             class="shadow-lg border border-gray-200 rounded-lg transition-transform hover:scale-x-105 duration-300">
+             class="shadow-lg border border-gray-200 rounded-lg
+             transition-transform hover:transform scale-50">
 
 
         <h2 class="text-2xl font-bold">¿Cómo funciona?</h2>

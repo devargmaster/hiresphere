@@ -50,11 +50,11 @@
                     <label class="mb-2 block uppercase text-gray-500 font-bold">Regístrate como:</label>
                     <div>
                         <label class="inline-flex items-center">
-                            <input type="radio" name="role_id" value="1" class="text-sky-600" checked>
+                            <input type="radio" name="role_id" value="5" class="text-sky-600" checked>
                             <span class="ml-2">Candidato</span>
                         </label>
                         <label class="inline-flex items-center ml-6">
-                            <input type="radio" name="role_id" value="2" class="text-sky-600">
+                            <input type="radio" name="role_id" value="4" class="text-sky-600">
                             <span class="ml-2">Reclutador</span>
                         </label>
                     </div>

@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>HireSphere</title>
+
+    <title>{{ $title }} :: HireSphere</title>
     @vite('resources/css/app.css')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -52,10 +53,8 @@
     </div>
 </header>
 <main>
-    <h2 class="font-black text-center text-3xl mb-10">
-        @yield('titulo')
-    </h2>
-    @yield('contenido')
+
+    {{ $slot }}
 </main>
 <footer class="mt-10 text-center p-5 text-gray-500 font-bold">
     HireSphere {{ now()->year }} - Todos los derechos reservados

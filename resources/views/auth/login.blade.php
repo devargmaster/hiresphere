@@ -1,14 +1,8 @@
-
-@extends('components.app')
-
-@section('titulo')
-    Inicio de sesión
-@endsection
-
-@section('contenido')
+<x-layout>
+    <x-slot:title>Login</x-slot:title>
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-6/12">
-            <img src="{{'img/login.jpg'}}" alt="Imagen de login"/>
+            <img src="{{'img/login.jpg'}}" alt="Imagen de login" class="mt-4"/>
         </div>
         <div class="md:w-4/12 m-5 bg-white p-6 rounded-lg shadow-2xl">
             <form action="{{ route('login') }}" method="post">
@@ -38,9 +32,9 @@
                 <input type="submit"
                        value="Iniciar sesión"
                        class="bg-sky-600 hover:bg-sky-700 transition-colors
-                              cursor-pointer
-                              w-full p-3 text-white uppercase font-bold rounded-lg"/>
+                             cursor-pointer
+                             w-full p-3 text-white uppercase font-bold rounded-lg"/>
             </form>
         </div>
     </div>
-@endsection
+</x-layout>

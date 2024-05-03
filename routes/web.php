@@ -46,6 +46,7 @@ Route::prefix('recluiter')->group(function () {
     Route::get('jobs', [AdminJobController::class, 'index'])->name('recluiter.jobs.index');
     Route::get('jobs/create', [AdminJobController::class, 'create'])->name('recluiter.addjob');
     Route::post('jobs', [AdminJobController::class, 'store'])->name('recluiter.jobs.store');
-    Route::put('/jobs/{id}', [AdminJobController::class, 'update'])->name('admin.jobs.update');
-    Route::delete('/jobs/{id}', [AdminJobController::class, 'destroy'])->name('admin.jobs.destroy');
+    Route::get('/jobs/{id}/edit', [AdminJobController::class, 'edit'])->name('recluiter.jobs.edit');
+    Route::put('/jobs/{id}', [AdminJobController::class, 'update'])->name('recluiter.jobs.update');
+    Route::delete('/jobs/{id}', [AdminJobController::class, 'destroy'])->name('recluiter.jobs.destroy');
 });

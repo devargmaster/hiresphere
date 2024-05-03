@@ -12,12 +12,35 @@
                 </a>
             </div>
             <div class="py-4">
-                @foreach($jobs as $job)
-                    <div class="mb-4">
-                        <h3 class="text-xl font-bold">{{ $job->title }}</h3>
-                        <p>{{ $job->description }}</p>
-                    </div>
-                @endforeach
+                <table class="table-auto w-full">
+                    <thead>
+                    <tr>
+                        <th class="px-4 py-2">Título</th>
+                        <th class="px-4 py-2">Contenido</th>
+                        <th class="px-4 py-2">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($jobs as $job)
+                        <tr>
+                            <td class="border px-4 py-2">{{ $job->title }}</td>
+                            <td class="border px-4 py-2">{{ $job->description }}</td>
+                            <td class="border px-4 py-2">
+                                <a href="{{ route('recluiter.jobs.edit', $job->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Editar
+                                </a>
+                                <form method="POST" action="{{ route('recluiter.jobs.destroy', $job->id) }}" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" onclick="deleteConfirmation('delete-form-{{ $job->id }}')" class="ml-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                        Eliminar
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

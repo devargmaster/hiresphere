@@ -30,4 +30,32 @@ class AdminJobController extends Controller
 
         return redirect()->route('recluiter.jobs.index');
     }
+    public function edit($id)
+    {
+        $job = Job::find($id);
+        return view('recluiter.editjob', ['job' => $job]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+        $job = Job::find($id);
+        $job->title = $request->title;
+        $job->description = $request->description;
+        $job->save();
+
+        return redirect()->route('recluiter.jobs.index');
+    }
+
+    public function destroy($id)
+    {
+        $job = Job::find($id);
+        $job->delete();
+
+        return redirect()->route('recluiter.jobs.index');
+    }
 }

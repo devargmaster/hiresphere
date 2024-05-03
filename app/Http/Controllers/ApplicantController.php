@@ -11,6 +11,6 @@ class ApplicantController extends Controller
     {
         $applicant = Applicant::all();
 //        dd($applicant);
-        return view('applicant',['applicants' => $applicant]);
+        return view('recluiter.applicant',['applicants' => $applicant]);
     }
 }

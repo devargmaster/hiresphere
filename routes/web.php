@@ -32,6 +32,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/news/create', [AdminNewsController::class, 'create'])->name('admin.news.create');
     Route::post('/news', [AdminNewsController::class, 'store'])->name('admin.news.store');
 });
+
 Route::delete('applicant/{id}', [\App\Http\Controllers\ApplicantController::class, 'delete'])->name('applicant.delete');
 Route::post('registro', [\App\Http\Controllers\RegisterController::class, 'store'])->name('register.store');
 
+Route::get('jobs', [\App\Http\Controllers\JobController::class, 'index'])->name('jobs.index');
+Route::get('recluiter.jobs', [\App\Http\Controllers\AdminJobController::class, 'index'])->name('recluiter.jobs.index');

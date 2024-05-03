@@ -33,7 +33,7 @@
         <nav class="flex gap-2 items-center">
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('news.index') }}">Novedades</a>|
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('login') }}">Login</a>|
-            <a href="#" class="font-bold uppercase text-red-800 text-sm">Empleos</a>|
+            <a href="{{ route('jobs.index')  }}" class="font-bold uppercase text-red-800 text-sm">Empleos</a>|
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('register') }}">Crear Cuenta</a>|
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('about') }}">Sobre Nosotros</a>|
             <div id="profile-container" class="relative font-bold uppercase text-red-800 text-sm cursor-pointer">
@@ -43,7 +43,7 @@
                 <div id="profile-menu" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 hidden">
                     <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Perfil</a>
                     <a href="{{ route('admin.news.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar News</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Empleos</a>
+                    <a href="{{ route('recluiter.jobs.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Empleos</a>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Postulaciones</a>
                     <a href="{{ route('applicant') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Candidatos</a>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Configuración</a>

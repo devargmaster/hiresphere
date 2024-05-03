@@ -12,12 +12,35 @@
                 </a>
             </div>
             <div class="py-4">
-                @foreach($news as $new)
-                    <div class="mb-4">
-                        <h3 class="text-xl font-bold">{{ $new->title }}</h3>
-                        <p>{{ $new->content }}</p>
-                    </div>
-                @endforeach
+                <table class="table-auto w-full">
+                    <thead>
+                    <tr>
+                        <th class="px-4 py-2">Título</th>
+                        <th class="px-4 py-2">Contenido</th>
+                        <th class="px-4 py-2">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($news as $new)
+                        <tr>
+                            <td class="border px-4 py-2">{{ $new->title }}</td>
+                            <td class="border px-4 py-2">{{ $new->content }}</td>
+                            <td class="border px-4 py-2">
+                                <a href="{{ route('admin.news.edit', $new->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Editar
+                                </a>
+                                <form method="POST" action="{{ route('admin.news.destroy', $new->id) }}" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" onclick="deleteConfirmation('delete-form-{{ $new->id }}')" class="ml-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                        Eliminar
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

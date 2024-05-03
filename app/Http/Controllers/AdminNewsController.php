@@ -23,4 +23,22 @@ class AdminNewsController extends Controller
         News::create($request->all());
         return redirect()->route('admin.news.index');
     }
+    public function edit($id)
+    {
+        $news = News::find($id);
+        return view('admin.editnews', ['news' => $news]);
+    }
+    public function update(Request $request, $id)
+    {
+        $news = News::find($id);
+        $news->update($request->all());
+        return redirect()->route('admin.news.index');
+    }
+
+    public function destroy($id)
+    {
+        $news = News::find($id);
+        $news->delete();
+        return redirect()->route('admin.news.index');
+    }
 }

@@ -21,6 +21,7 @@
             });
         });
     </script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </head>
 <body class="bg-gray-100">
 <header class="p-5 border-b bg-white shadow">

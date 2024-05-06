@@ -13,4 +13,8 @@ class Job extends Model
         'title',
         'description',
     ];
+    public function applicants()
+    {
+        return $this->belongsToMany(Applicant::class)->withTimestamps();
+    }
 }

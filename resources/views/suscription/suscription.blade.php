@@ -1,10 +1,7 @@
-@extends('components.layout')
+<x-layout>
+    <x-slot:title>Suscripciones</x-slot:title>
 
-@section('titulo')
-    Mejora tu perfil tanto de candidato como de reclutador
-@endsection
-
-@section('contenido')
+    <h2 class="font-black text-3xl md:flex md:justify-center">Mejora tu perfil tanto de candidato como de reclutador</h2>
     <div class="container mx-auto px-4 py-6">
         <h1 class="text-3xl font-bold text-center mb-6">Opciones de Suscripción</h1>
         <div class="md:flex md:justify-center md:gap-10">
@@ -47,4 +44,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-layout>

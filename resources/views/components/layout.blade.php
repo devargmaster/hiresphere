@@ -21,7 +21,8 @@
             });
         });
     </script>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class="bg-gray-100">
 <header class="p-5 border-b bg-white shadow">

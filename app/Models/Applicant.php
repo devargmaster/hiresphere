@@ -9,5 +9,8 @@ class Applicant extends Model
 {
     use HasFactory;
 
-
+    public function job()
+    {
+        return $this->belongsToMany(Job::class)->withTimestamps();
+    }
 }

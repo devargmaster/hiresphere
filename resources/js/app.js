@@ -1,20 +1,14 @@
 import './bootstrap';
-import swal from 'sweetalert';
 
-document.querySelectorAll('.delete-button').forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.preventDefault();
-        swal({
-            title: "¿Estás seguro?",
-            text: "Una vez eliminado, no podrás recuperar esta noticia!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        })
-            .then((willDelete) => {
-                if (willDelete) {
-                    event.target.form.submit();
-                }
-            });
+document.addEventListener('DOMContentLoaded', function () {
+    const profileMenu = document.getElementById('profile-menu');
+    const profileLink = document.getElementById('profile-link');
+
+    profileLink.addEventListener('mouseover', () => {
+        profileMenu.style.display = 'block';
+    });
+
+    profileMenu.addEventListener('mouseleave', () => {
+        profileMenu.style.display = 'none';
     });
 });

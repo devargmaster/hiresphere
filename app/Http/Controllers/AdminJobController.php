@@ -58,4 +58,9 @@ class AdminJobController extends Controller
 
         return redirect()->route('recluiter.jobs.index');
     }
+    public function showApplicants()
+    {
+        $jobs = Job::with('applicants')->get();
+        return view('recluiter.applicantjobs', ['jobs' => $jobs]);
+    }
 }

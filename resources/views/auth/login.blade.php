@@ -1,5 +1,10 @@
 <x-layout>
     <x-slot:title>Login</x-slot:title>
+    @if(session('feedback.message'))
+        <div class="alert alert-success">
+            {{ session('feedback.message') }}
+        </div>
+    @endif
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-6/12">
             <img src="{{'img/login.jpg'}}" alt="Imagen de login" class="mt-4"/>

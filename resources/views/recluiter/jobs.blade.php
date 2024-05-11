@@ -24,18 +24,20 @@
                     @foreach($jobs as $job)
                         <tr>
                             <td class="border px-4 py-2">{{ $job->title }}</td>
-                            <td class="border px-4 py-2">{{ $job->description }}</td>
+                            <td class="border px-4 py-2">{{ Str::limit($job->description, 200) }}</td>
                             <td class="border px-4 py-2">
-                                <a href="{{ route('recluiter.jobs.edit', $job->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    Editar
-                                </a>
-                                <form method="POST" action="{{ route('recluiter.jobs.destroy', $job->id) }}" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="deleteConfirmation('delete-form-{{ $job->id }}')" class="ml-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                        Eliminar
-                                    </button>
-                                </form>
+                                <div class="flex space-x-4">
+                                    <a href="{{ route('recluiter.jobs.edit', $job->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                        Editar
+                                    </a>
+                                    <form method="POST" action="{{ route('recluiter.jobs.destroy', $job->id) }}" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

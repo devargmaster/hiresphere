@@ -21,7 +21,8 @@ class AdminNewsController extends Controller
     public function store(Request $request)
     {
         News::create($request->all());
-        return redirect()->route('admin.news.index');
+        return redirect()->route('admin.news.index')
+            ->with('feedback.message', 'Se ha creado una nueva noticia');
     }
     public function edit($id)
     {
@@ -31,8 +32,10 @@ class AdminNewsController extends Controller
     public function update(Request $request, $id)
     {
         $news = News::find($id);
+        $input = $request->only(['title', ]);
         $news->update($request->all());
-        return redirect()->route('admin.news.index');
+        return redirect()->route('admin.news.index')
+            ->with('feedback.message', 'Se ha editado la noticia');
     }
 
     public function destroy($id)

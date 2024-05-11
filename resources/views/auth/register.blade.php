@@ -68,6 +68,7 @@
 
                 <input type="submit" value="Crear cuenta"
                        class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer w-full p-3 text-white uppercase font-bold rounded-lg"/>
+                <a href="{{ route('login') }}" class="block text-center mt-4 text-sky-600 hover:underline">¿Ya tienes una cuenta? Inicia sesión</a>
             </form>
         </div>
     </div>

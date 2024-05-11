@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
             'Editor' => 'Can edit existing entries',
             'Subscriber' => 'Can read posts and write comments',
             'Recluiter' => 'Can post job offers and review applicants',
-            'Job Seeker' => 'Looking for job opportunities',
+            'Candidato' => 'Looking for job opportunities',
             'Applicant' => 'Has applied for a job',
         ];
 

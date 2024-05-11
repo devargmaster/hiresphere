@@ -1,6 +1,13 @@
 <x-layout>
     <x-slot:title>Adm Noticias</x-slot:title>
 
+    @if(session('feedback.message'))
+        <div class="bg-green-100 border border-green-400 text-green-700 container mx-auto px-4 sm:px-8 max-w-3xl mt-4">
+            <div class="py-8">
+            <strong class="font-bold">{{ session('feedback.message') }}</strong>
+            </div>
+        </div>
+    @endif
     <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
         <div class="py-8">
             <div class="flex flex-row mb-1 sm:mb-0 justify-between w-full">

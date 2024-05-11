@@ -10,4 +10,23 @@ class ProfileController extends Controller
     {
         return view('profile.profile');
     }
+    public function edit()
+    {
+        $user = auth()->user();
+        return view('profile.edit', compact('user'));
+    }
+    public function update(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . auth()->id(),
+        ]);
+
+        $user = auth()->user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+
+        return redirect()->route('profile');
+    }
 }

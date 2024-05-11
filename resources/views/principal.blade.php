@@ -1,5 +1,12 @@
 <x-layout>
     <x-slot:title>Home</x-slot:title>
+    @if(session('feedback.message'))
+        <div class="bg-green-100 border border-green-400 text-green-700 container mx-auto px-4 sm:px-8 max-w-3xl mt-4">
+            <div class="py-8">
+                <strong class="font-bold">{{ session('feedback.message') }}</strong>
+            </div>
+        </div>
+    @endif
     <div class="md:flex md:flex-col md:items-center text-center">
         <h1 class="text-4xl font-bold">Bienvenido a HireSphere</h1>
         <p class="text-xl">Tu portal para las oportunidades laborales más atractivas del mercado.</p>

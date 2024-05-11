@@ -24,7 +24,8 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        return redirect()->route('home');
+        return redirect()->route('home')
+            ->with('feedback.message', 'Registro exitoso!');
     }
     public function create()
     {

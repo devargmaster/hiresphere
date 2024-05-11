@@ -34,36 +34,37 @@
         </div>
         <nav class="flex gap-2 items-center">
             <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('news.index') }}">Novedades</a>|
-            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('login') }}">Login</a>|
+            @if(!auth()->check())  <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('login') }}">Login</a>|@endif
             <a href="{{ route('jobs.index')  }}" class="font-bold uppercase text-red-800 text-sm">Empleos</a>|
-            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('register') }}">Crear Cuenta</a>|
-            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('about') }}">Sobre Nosotros</a>|
+            @if(!auth()->check()) <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('register') }}">Crear Cuenta</a>|@endif
+            <a class="font-bold uppercase text-red-800 text-sm" href="{{ route('about') }}">Sobre Nosotros</a>
+            @if(auth()->check())|
             <div id="profile-container" class="relative font-bold uppercase text-red-800 text-sm cursor-pointer">
                 <div id="profile-link">
                     Perfil
                 </div>
                 <div id="profile-menu" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 hidden">
-                    @if(auth()->check())
+
                         <div id="profile-link">
-                            {{ auth()->user()->name }} (Logueado)
+                            {{ auth()->user()->name }}  ({{ auth()->user()->role->name }})
                         </div>
-                    @else
-                        <div id="profile-link">
-                            Invitado
-                        </div>
-                    @endif
+
                     <a href="{{ route('profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Perfil</a>
                     <a href="{{ route('admin.news.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar News</a>
                     <a href="{{ route('recluiter.jobs.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Empleos</a>
                         <a href="{{ route('recluiter.jobs.applicants') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ver Solicitantes</a>
                     <a href="{{ route('applicant') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Candidatos</a>
                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Configuración</a>
-                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Salir</a>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Salir</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
+{{--                            TODO
+ mejorar a boton--}}
+
                         </form>
                 </div>
             </div>
+                @endif
         </nav>
     </div>
 </header>

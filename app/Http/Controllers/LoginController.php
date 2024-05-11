@@ -17,7 +17,10 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            return redirect()->intended('/')
+                ->withInput($request->only('email'))
+                ->with('feedback.message', 'Inicias sesión correctamente.');
+
         }
 
         return back()->withErrors([
@@ -29,6 +32,7 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+
     public function logout()
     {
         Auth::logout();

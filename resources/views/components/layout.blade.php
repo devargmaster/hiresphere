@@ -8,6 +8,9 @@
     <title>{{ $title }} :: HireSphere</title>
     @vite('resources/css/app.css')
     <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let profileLink = document.querySelector('#profileLink');
+            if (profileLink !== null) {
         document.addEventListener('DOMContentLoaded', function () {
             const profileMenu = document.getElementById('profile-menu');
             const profileLink = document.getElementById('profile-link');
@@ -19,6 +22,8 @@
             profileMenu.addEventListener('mouseleave', () => {
                 profileMenu.style.display = 'none';
             });
+        });
+            }
         });
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

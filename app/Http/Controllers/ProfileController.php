@@ -29,4 +29,10 @@ class ProfileController extends Controller
 
         return redirect()->route('profile');
     }
+
+    public function show()
+    {
+        $user = auth()->user();
+        return view('profile.show', compact('user'));
+    }
 }

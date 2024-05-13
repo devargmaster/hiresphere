@@ -26,6 +26,7 @@ class AdminJobController extends Controller
         $job = new Job;
         $job->title = $request->title;
         $job->description = $request->description;
+        $job->user_id = auth()->user()->id;
         $job->save();
 
         return redirect()->route('recluiter.jobs.index');

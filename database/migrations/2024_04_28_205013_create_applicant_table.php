@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('applicants', function (Blueprint $table) {
+            $table->id("applicant_id");
             $table->string('email');
             $table->string('name');
             $table->string('phone');
@@ -30,7 +31,6 @@ return new class extends Migration
             $table->string('user_agent');
             $table->string('referrer');
             $table->dateTime('applied_at');
-            $table->id("applicant_id");
             $table->timestamps();
         });
     }

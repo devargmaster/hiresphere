@@ -4,17 +4,15 @@
         <div class="w-full md:w-3/12 px-4">
             <div class="mt-6">
                 <h2 class="mb-4 text-lg font-bold text-gray-700">Filtros</h2>
-                <!-- Aquí puedes agregar tus filtros -->
                 <div>
                     <h3 class="mb-2 text-sm font-semibold text-gray-600">Por ubicación</h3>
-                    <!-- Este es solo un ejemplo, debes ajustarlo a tus necesidades -->
                     <div>
                         <label class="inline-flex items-center">
                             <input type="checkbox" class="form-checkbox text-sky-600">
                             <span class="ml-2">Buenos Aires</span>
                         </label>
                     </div>
-                    <!-- Agrega más filtros según necesites -->
+
                 </div>
             </div>
         </div>
@@ -29,15 +27,15 @@
                             <p class="text-gray-600">{{ $job->company }}</p> <!-- Add company name -->
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-4">{{ Str::limit($job->description, 150) }}</p> <!-- Add job description -->
+                    <p class="text-gray-700 mb-4">{{ Str::limit($job->description, 150) }}</p>
                     <div class="flex justify-between items-end">
-                        <p class="text-gray-600">{{ $job->location }}</p> <!-- Add job location -->
+                        <p class="text-gray-600">{{ $job->location }}</p>
                         <a href="{{ route('jobs.show', $job) }}"
                            class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer
                             text-white font-bold py-2 px-4 rounded">Ver Empleo</a>
                     </div>
                     <div class="mt-4">
-                        <p class="text-gray-600">Publicado: {{ $job->created_at->diffForHumans() }}</p> <!-- Add job posted date -->
+                        <p class="text-gray-600">Publicado: {{ $job->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
             @endforeach

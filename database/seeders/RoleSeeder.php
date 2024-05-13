@@ -15,12 +15,12 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $roles = [
-            'Administrator' => 'Has full access to the system',
-            'Editor' => 'Can edit existing entries',
-            'Subscriber' => 'Can read posts and write comments',
-            'Recluiter' => 'Can post job offers and review applicants',
-            'Candidato' => 'Looking for job opportunities',
-            'Applicant' => 'Has applied for a job',
+            'Administrador' => 'Tiene acceso completo al sistema',
+            'Editor' => 'Puede editar entradas existentes',
+            'Suscriptor' => 'Puede leer publicaciones y escribir comentarios',
+            'Reclutador' => 'Puede publicar ofertas de trabajo y revisar candidatos',
+            'Candidato' => 'Buscando oportunidades de trabajo',
+            'Solicitante' => 'Ha solicitado un trabajo',
         ];
 
         foreach ($roles as $role => $description) {

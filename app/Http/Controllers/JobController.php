@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applicant;
 use App\Models\Job;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
@@ -18,11 +19,15 @@ class JobController extends Controller
     }
     public function apply(Request $request, Job $job)
     {
+        $userId = auth()->user()->id;
+        $applicant = Applicant::where('user_id', $userId)->first();
+        if (!$applicant) {
+            return redirect()->back()->with('error', 'Necesitas completar tu perfil antes de postularte.');
+        }
         try {
-            $job->applicants()->attach(auth()->user()->id);
+            $job->applicants()->sync(auth()->user()->id);
             return redirect()->back()->with('success', 'Has aplicado al trabajo exitosamente.');
         } catch (QueryException $e) {
-
             if ($e->getCode() == 23000) {
                 return redirect()->back()->with('error', 'Ya has aplicado a este trabajo.');
             }

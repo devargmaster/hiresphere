@@ -77,8 +77,8 @@ Route::prefix('admin')->group(function () {
         ->middleware('auth');
 });
 
+Route::get('/profile/menu', [ProfileController::class, 'menu'])->name('profile.menu');
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-
 Route::get('jobs/applicants', [AdminJobController::class, 'showApplicants'])
     ->name('recluiter.jobs.applicants')
     ->middleware('auth');

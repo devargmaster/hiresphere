@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Applicant;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -13,23 +14,48 @@ class ProfileController extends Controller
     public function edit()
     {
         $user = auth()->user();
-        return view('profile.edit', compact('user'));
+        $applicant = Applicant::firstOrCreate(
+            ['user_id' => $user->id],
+            [
+                'user_id' => $user->id,
+                'name' => '',
+                'email' => '',
+                'phone' => '',
+                'address' => '',
+                'city' => '',
+                'state' => '',
+                'zip' => '',
+                'country' => '',
+                'resume' => '',
+                'cover_letter' => '',
+                'job_id' => '',
+                'status' => '',
+                'notes' => '',
+                'source' => '',
+                'ip_address' => '',
+                'user_agent' => '',
+                'referrer' => '',
+                'applied_at' => now(),
+            ]
+        );
+        return view('profile.edit', ['user' => $user, 'applicant' => $applicant]);
     }
     public function update(Request $request)
     {
-        $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . auth()->id(),
-        ]);
-
         $user = auth()->user();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->save();
+        $user->update($request->only('name', 'email'));
 
-        return redirect()->route('profile');
+        $applicant = Applicant::firstOrCreate(['user_id' => $user->id]);
+        $applicant->update($request->only('name', 'email', 'phone', 'address', 'city', 'state', 'zip', 'country', 'resume', 'cover_letter', 'job_id', 'status', 'notes', 'source', 'ip_address', 'user_agent', 'referrer', 'applied_at'));
+
+        return redirect()->route('profile.show')->with('success', 'Perfil actualizado exitosamente.');
     }
 
+    public function menu()
+    {
+        $user = auth()->user();
+        return view('profile.menu', compact('user'));
+    }
     public function show()
     {
         $user = auth()->user();

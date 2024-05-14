@@ -4,7 +4,7 @@
     @if(session('feedback.message'))
         <div class="bg-green-100 border border-green-400 text-green-700 container mx-auto px-4 sm:px-8 max-w-3xl mt-4">
             <div class="py-8">
-            <strong class="font-bold">{{ session('feedback.message') }}</strong>
+                <strong class="font-bold">{{ session('feedback.message') }}</strong>
             </div>
         </div>
     @endif
@@ -33,16 +33,18 @@
                             <td class="border px-4 py-2">{{ $new->title }}</td>
                             <td class="border px-4 py-2">{{ $new->content }}</td>
                             <td class="border px-4 py-2">
-                                <a href="{{ route('admin.news.edit', $new->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    Editar
-                                </a>
-                                <form method="POST" action="{{ route('admin.news.destroy', $new->id) }}" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit"  class="ml-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                        Eliminar
-                                    </button>
-                                </form>
+                                <div class="flex space-x-2">
+                                    <a href="{{ route('admin.news.edit', $new->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                        Editar
+                                    </a>
+                                    <form method="POST" action="{{ route('admin.news.destroy', $new->id) }}" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
@@ -51,5 +53,4 @@
             </div>
         </div>
     </div>
-
 </x-layout>

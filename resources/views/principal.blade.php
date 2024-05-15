@@ -13,7 +13,7 @@
 
         <img src="{{ asset('img/workimage.webp') }}" alt="Buscar Trabajo"
              class="shadow-lg border border-gray-200 rounded-lg
-             transition-transform hover:transform scale-50 mt-4">
+             transition-transform hover:transform">
 
         <h2 class="text-2xl font-bold mt-8">¿Cómo funciona?</h2>
         <p class="mb-6 w-11/12 md:w-8/12 mx-auto">En HireSphere, conectamos talento con oportunidad. Explora miles de ofertas, sube tu

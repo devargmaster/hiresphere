@@ -40,6 +40,9 @@ class JobController extends Controller
      */
     public function apply(Request $request, Job $job)
     {
+        if (auth()->user()->isReclutador()) {
+            return redirect()->back()->with('error', 'Los reclutadores no pueden aplicar a trabajos.');
+        }
         $userId = auth()->user()->id;
         $applicant = Applicant::where('user_id', $userId)->first();
         if (!$applicant) {

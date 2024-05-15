@@ -24,7 +24,7 @@
                         <img src="{{ asset('storage/' . $job->image) }}" alt="Logo" class="w-20 h-20 object-cover">
                         <div class="ml-4">
                             <h2 class="text-2xl font-bold">{{ $job->title }}</h2>
-                            <p class="text-gray-600">{{ $job->company }}</p> <!-- Add company name -->
+                            <p class="text-gray-600">{{ $job->company_name }}</p>
                         </div>
                     </div>
                     <p class="text-gray-700 mb-4">{{ Str::limit($job->description, 150) }}</p>

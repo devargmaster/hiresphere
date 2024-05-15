@@ -2,8 +2,6 @@
     <x-slot:title>Noticias</x-slot:title>
     <div class="md:flex md:flex-col md:justify-center md:items-center text-center">
         <h1 class="text-3xl font-bold mt-6 mb-4">Últimas Noticias del Mercado Laboral</h1>
-
-        <!-- Contenedor de noticias -->
         <div class="md:w-10/12 mb-6">
             @foreach($news as $new)
                 <div class="md:flex md:items-center bg-white p-6 rounded-lg shadow-xl">
@@ -18,6 +16,8 @@
                 </div>
             @endforeach
         </div>
-
+        <div class="md:flex md:justify-center mt-4">
+            {{ $news->links('vendor.pagination.custom') }}
+        </div>
     </div>
 </x-layout>

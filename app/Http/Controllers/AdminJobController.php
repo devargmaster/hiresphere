@@ -40,10 +40,13 @@ class AdminJobController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+
         $job = new Job;
         $job->title = $request->title;
         $job->description = $request->description;
         $job->user_id = auth()->user()->id;
+        $job->company_name= $request->company_name;
+        $job->location= $request->location;
         if ($request->file('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
             $job->image = $imagePath;

@@ -3,6 +3,7 @@
     <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
 
         <h2 class="font-extrabold">{{ $job->title }}</h2>
+        <img src="{{ asset('storage/' . $job->image) }}" alt="Job Image" class="w-20 h-20 object-cover mb-4">
         <p>{{ $job->description }}</p>
         @if (session('success'))
             <div class="alert alert-success text-green-500">

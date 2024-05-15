@@ -37,15 +37,20 @@ class AdminJobController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $job = new Job;
         $job->title = $request->title;
         $job->description = $request->description;
         $job->user_id = auth()->user()->id;
+        if ($request->file('image')) {
+            $imagePath = $request->file('image')->store('images', 'public');
+            $job->image = $imagePath;
+        }
         $job->save();
 
-        return redirect()->route('recluiter.jobs.index');
+        return redirect()->route('recluiter.jobs.index')->with('success', 'Se guardo.');
     }
     /**
      * Muestra el formulario para editar el trabajo especificado.

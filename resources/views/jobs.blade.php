@@ -21,7 +21,7 @@
             @foreach($jobs as $job)
                 <div class="bg-white p-6 rounded-lg shadow-xl mb-4">
                     <div class="flex items-center mb-4">
-                        <img src="https://via.placeholder.com/150" alt="Logo" class="w-20 h-20 object-cover">
+                        <img src="{{ asset('storage/' . $job->image) }}" alt="Logo" class="w-20 h-20 object-cover">
                         <div class="ml-4">
                             <h2 class="text-2xl font-bold">{{ $job->title }}</h2>
                             <p class="text-gray-600">{{ $job->company }}</p> <!-- Add company name -->

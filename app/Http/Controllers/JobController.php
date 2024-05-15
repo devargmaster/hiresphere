@@ -9,17 +9,35 @@ use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
+    /**
+     * Muestra los trabajos
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $jobs = Job::orderBy('created_at', 'desc')->paginate(10);
         return view('jobs', ['jobs' => $jobs]);
     }
+    /**
+     * Muestra un trabajo
+     *
+     * @param  \App\Models\Job  $job
+     * @return \Illuminate\Http\Response
+     */
 
     public function show(Job $job)
     {
         return view('jobs.show', ['job' => $job]);
     }
 
+    /**
+     * Aplica a un trabajo
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Job  $job
+     * @return \Illuminate\Http\Response
+     */
     public function apply(Request $request, Job $job)
     {
         $userId = auth()->user()->id;

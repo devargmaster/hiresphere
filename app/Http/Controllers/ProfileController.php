@@ -7,10 +7,20 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    /**
+     * Muestra el perfil del usuario
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function profile()
     {
         return view('profile.profile');
     }
+    /**
+     * Muestra el formulario de edición del perfil del usuario
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function edit()
     {
         $user = auth()->user();
@@ -40,6 +50,12 @@ class ProfileController extends Controller
         );
         return view('profile.edit', ['user' => $user, 'applicant' => $applicant]);
     }
+    /**
+     * Actualiza el perfil del usuario
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request)
     {
         $user = auth()->user();
@@ -50,12 +66,21 @@ class ProfileController extends Controller
 
         return redirect()->route('profile.show')->with('success', 'Perfil actualizado exitosamente.');
     }
-
+    /**
+     * Muestra el menú del usuario
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function menu()
     {
         $user = auth()->user();
         return view('profile.menu', compact('user'));
     }
+    /**
+     * Muestra el perfil del usuario
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function show()
     {
         $user = auth()->user();

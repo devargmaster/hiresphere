@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ApplicantController extends Controller
 {
+    /**
+     * Listado de candidatos
+     *
+     * @return \Illuminate\Http\Response
+     */
+
     public function applicant()
     {
         $applicant = Applicant::all();

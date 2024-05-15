@@ -100,6 +100,7 @@ Route::post('/jobs/{job}/apply', [\App\Http\Controllers\JobController::class, 'a
     ->name('jobs.apply')
     ->middleware('auth');
 
+
 Route::prefix('recluiter')->group(function () {
     Route::get('jobs', [AdminJobController::class, 'index'])
         ->name('recluiter.jobs.index')
@@ -119,4 +120,8 @@ Route::prefix('recluiter')->group(function () {
     Route::delete('/jobs/{id}', [AdminJobController::class, 'destroy'])
         ->name('recluiter.jobs.destroy')
         ->whereNumber('id');
+    Route::get('/jobs/{id}/confirm-delete', [AdminJobController::class, 'confirmDelete'])
+        ->name('recluiter.jobs.confirmDelete')
+        ->whereNumber('id')
+        ->middleware('auth');
 });

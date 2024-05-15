@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    /**
+     * Inicia sesión del usuario
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function login(Request $request)
     {
         $request->validate([
@@ -28,11 +34,21 @@ class LoginController extends Controller
         ]);
     }
 
+    /**
+     * Muestra el formulario de inicio de sesión
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
+    /**
+     * Cierra la sesión del usuario
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function logout()
     {
         Auth::logout();

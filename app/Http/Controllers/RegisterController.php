@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\User;
 class RegisterController extends Controller
 {
+    /**
+     * Guarda un nuevo usuario en la base de datos
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -27,6 +33,11 @@ class RegisterController extends Controller
         return redirect()->route('home')
             ->with('feedback.message', 'Registro exitoso!');
     }
+    /**
+     * Muestra el formulario de registro
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         return view('auth.register');

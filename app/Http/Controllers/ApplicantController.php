@@ -15,8 +15,12 @@ class ApplicantController extends Controller
 
     public function applicant()
     {
-        $applicant = Applicant::all();
-//        dd($applicant);
-        return view('recluiter.applicant',['applicants' => $applicant]);
+        $roleId = 5;
+
+        $applicants = Applicant::whereHas('user', function ($query) use ($roleId) {
+            $query->where('role_id', $roleId);
+        })->get();
+
+        return view('recluiter.applicant', ['applicants' => $applicants]);
     }
 }

@@ -37,9 +37,8 @@
                                     <a href="{{ route('admin.news.edit', $new->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                         Editar
                                     </a>
-                                    <form method="POST" action="{{ route('admin.news.destroy', $new->id) }}" class="inline">
+                                    <form method="GET" action="{{ route('admin.news.confirmDelete', $new->id) }}" class="inline">
                                         @csrf
-                                        @method('DELETE')
                                         <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                             Eliminar
                                         </button>

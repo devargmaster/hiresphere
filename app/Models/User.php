@@ -51,4 +51,12 @@ class User extends Authenticatable
     {
         return $this->role_id == 4;
     }
+    public function isAdmin()
+    {
+        return $this->role_id == 1;
+    }
+    public function isCandidato()
+    {
+        return $this->role_id == 5;
+    }
 }

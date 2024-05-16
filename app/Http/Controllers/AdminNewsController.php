@@ -92,4 +92,15 @@ class AdminNewsController extends Controller
         $news->delete();
         return redirect()->route('admin.news.index');
     }
+    /**
+     * Muestra el formulario de confirmación para eliminar la noticia especificada.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmDelete($id)
+    {
+        $news = News::findOrFail($id);
+        return view('admin.newsconfirmDelete', ['news' => $news]);
+    }
 }

@@ -15,6 +15,7 @@ class Job extends Model
         'company_name',
         'location',
         'image',
+
     ];
     public function applicants()
     {

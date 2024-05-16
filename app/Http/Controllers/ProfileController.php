@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Applicant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -58,13 +59,33 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
-        $user = auth()->user();
+        $request->validate([
+            // Valida aquí los nuevos campos
+            'phone' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required',
+            'country' => 'required',
+            'resume' => 'required',
+            'cover_letter' => 'required',
+            'job_id' => 'required',
+            'status' => 'required',
+            'notes' => 'required',
+            'source' => 'required',
+            'ip_address' => 'required',
+            'user_agent' => 'required',
+            'referrer' => 'required',
+            'applied_at' => 'required|date',
+        ]);
+
+        $user = Auth::user();
         $user->update($request->only('name', 'email'));
 
-        $applicant = Applicant::firstOrCreate(['user_id' => $user->id]);
-        $applicant->update($request->only('name', 'email', 'phone', 'address', 'city', 'state', 'zip', 'country', 'resume', 'cover_letter', 'job_id', 'status', 'notes', 'source', 'ip_address', 'user_agent', 'referrer', 'applied_at'));
+        $applicant = $user->applicant;
+        $applicant->update($request->only('phone', 'address', 'city', 'state', 'zip', 'country', 'resume', 'cover_letter', 'job_id', 'status', 'notes', 'source', 'ip_address', 'user_agent', 'referrer', 'applied_at'));
 
-        return redirect()->route('profile.show')->with('success', 'Perfil actualizado exitosamente.');
+        return redirect()->route('profile.edit')->with('status', 'Perfil actualizado con éxito');
     }
     /**
      * Muestra el menú del usuario

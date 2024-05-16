@@ -75,6 +75,10 @@ Route::prefix('admin')->group(function () {
         ->name('admin.news.destroy')
         ->whereNumber('id')
         ->middleware('auth');
+    Route::get('/news/{id}/newsconfirmDelete', [AdminNewsController::class, 'confirmDelete'])
+        ->name('admin.news.confirmDelete')
+        ->whereNumber('id')
+        ->middleware('auth');
 });
 
 Route::get('/profile/menu', [ProfileController::class, 'menu'])->name('profile.menu');

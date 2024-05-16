@@ -27,8 +27,49 @@
                         <label for="address" class="block text-sm font-medium text-gray-700">Dirección</label>
                         <input id="address" name="address" type="text" value="{{ $applicant->address }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     </div>
-                    <!-- Agrega aquí el resto de los campos del solicitante -->
-                    <!-- ... -->
+
+                    <div>
+                        <label for="city" class="block text-sm font-medium text-gray-700">Ciudad</label>
+                        <input id="city" name="city" type="text" value="{{ $applicant->city }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="state" class="block text-sm font-medium text-gray-700">Estado</label>
+                        <input id="state" name="state" type="text" value="{{ $applicant->state }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="zip" class="block text-sm font-medium text-gray-700">Código Postal</label>
+                        <input id="zip" name="zip" type="text" value="{{ $applicant->zip }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="country" class="block text-sm font-medium text-gray-700">País</label>
+                        <input id="country" name="country" type="text" value="{{ $applicant->country }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="resume" class="block text-sm font-medium text-gray-700">Currículum</label>
+                        <input id="resume" name="resume" type="text" value="{{ $applicant->resume }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="cover_letter" class="block text-sm font-medium text-gray-700">Carta de Presentación</label>
+                        <input id="cover_letter" name="cover_letter" type="text" value="{{ $applicant->cover_letter }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="job_id" class="block text-sm font-medium text-gray-700">ID del Trabajo</label>
+                        <input id="job_id" name="job_id" type="text" value="{{ $applicant->job_id }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="status" class="block text-sm font-medium text-gray-700">Estado</label>
+                        <input id="status" name="status" type="text" value="{{ $applicant->status }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div>
+                        <label for="notes" class="block text-sm font-medium text-gray-700">Notas</label>
+                        <input id="notes" name="notes" type="text" value="{{ $applicant->notes }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
+                    <div>
+                        <label for="referrer" class="block text-sm font-medium text-gray-700">Referente</label>
+                        <input id="referrer" name="referrer" type="text" value="{{ $applicant->referrer }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+
                     <div>
                         <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Guardar Cambios

@@ -34,10 +34,11 @@
                                             <p>{{ $applicant->address }}</p>
                                         </div>
                                         <div class="mt-4 flex gap-2">
-                                            <a href=""
-                                               class="text-sm bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">Editar</a>
-                                            <a href=""
-                                               class="text-sm bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">Eliminar</a>
+                                            <a href="" class="text-sm bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">Ver Detalle</a>
+                                            @if(Auth::user()->isAdmin())
+                                            <a href="" class="text-sm bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">Editar</a>
+                                            <a href="" class="text-sm bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">Eliminar</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

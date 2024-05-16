@@ -14,7 +14,7 @@ class AdminNewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->paginate(5);
         return view('admin.news', ['news' => $news]);
     }
     /**
@@ -35,7 +35,22 @@ class AdminNewsController extends Controller
      */
     public function store(Request $request)
     {
-        News::create($request->all());
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $news = new News;
+        $news->title = $request->title;
+        $news->content = $request->description;
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $news->image = $imageName;
+        }
+        $news->save();
+//        News::create($request->all());
         return redirect()->route('admin.news.index')
             ->with('feedback.message', 'Se ha creado una nueva noticia');
     }

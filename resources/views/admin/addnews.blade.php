@@ -9,7 +9,7 @@
                 </h2>
             </div>
             <div class="py-4">
-                <form method="POST" action="{{ route('admin.news.store') }}">
+                <form method="POST" action="{{ route('admin.news.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
@@ -18,23 +18,27 @@
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                id="title" type="text" placeholder="Título de la noticia" name="title">
                     </div>
-                    <div class="mb-6">
+                    <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
                             Contenido
                         </label>
-                        <textarea
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="content" placeholder="Contenido de la noticia" name="content"></textarea>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                  id="content" placeholder="Contenido de la noticia" name="description"></textarea>
                     </div>
-                    <div class="flex items-center justify-between">
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                type="submit">
-                            Crear Noticia
-                        </button>
-                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
+                            Imagen
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                               id="image" type="file" name="image">
+                        <div class="flex items-center justify-between">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    type="submit">
+                                Crear Noticia
+                            </button>
+                        </div>
                 </form>
             </div>
         </div>
     </div>
 </x-layout>
-

@@ -12,6 +12,9 @@ class Job extends Model
     protected $fillable = [
         'title',
         'description',
+        'company_name',
+        'location',
+        'image',
     ];
     public function applicants()
     {

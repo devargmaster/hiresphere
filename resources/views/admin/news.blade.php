@@ -51,6 +51,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="md:flex md:justify-center mt-4">
+                {{ $news->links('vendor.pagination.custom') }}
+            </div>
         </div>
     </div>
 </x-layout>

@@ -4,8 +4,8 @@
         <h1 class="text-3xl font-bold mt-6 mb-4">Últimas Noticias del Mercado Laboral</h1>
         <div class="md:w-10/12 mb-6">
             @foreach($news as $new)
-                <div class="md:flex md:items-center bg-white p-6 rounded-lg shadow-xl">
-                    <img src="https://via.placeholder.com/400x200" alt="Imagen Noticia" class="md:w-1/2">
+                <div class="md:flex md:items-center bg-white p-6 rounded-lg shadow-xl mb-4">
+                    <img src="{{ asset('images/' . $new->image) }}" alt="Imagen Noticia" class="md:w-1/2 w-full object-cover h-64 md:h-auto">
                     <div class="md:w-1/2 md:pl-6">
                         <h2 class="text-2xl font-bold mb-3">{{ $new->title }}</h2>
                         <p class="mb-3">{{ $new->content }}</p>

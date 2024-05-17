@@ -2,11 +2,48 @@
     <x-slot:title>Adm Trabajos</x-slot:title>
     <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
 
-        <h2 class="font-extrabold text-2xl mb-4">{{ $job->title }}</h2>
-        <img src="{{ asset('storage/' . $job->image) }}" alt="Job Image" class="w-64 h-64 object-cover mb-4">
-        <p class="text-lg mb-2">{{ $job->company_name }}</p>
-        <p class="text-lg mb-2">{{ $job->location }}</p>
-        <p class="text-lg mb-4">{{ $job->description }}</p>
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-4">
+            <div class="px-4 py-5 sm:px-6">
+                <h2 class="font-extrabold text-2xl mb-4">{{ $job->title }}</h2>
+            </div>
+            <div class="border-t border-gray-200">
+                <dl>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            <img src="{{ asset('storage/' . $job->image) }}" alt="Job Image" class="w-64 h-64 object-cover mb-4">
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Compañía
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $job->company_name }}
+                        </dd>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Ubicación
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $job->location }}
+                        </dd>
+                    </div>
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">
+                            Descripción
+                        </dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $job->description }}
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+
         @if (session('success'))
             <div class="alert alert-success text-green-500">
                 {{ session('success') }}

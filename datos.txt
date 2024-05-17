@@ -1,0 +1,41 @@
+Carrera: Técnicatura Superior en diseño  y programación web
+Materia: Portales y Comercio Electrónico
+Cuatrimestre: 4to
+Año: 2024
+Turno: Noche
+Comisión:DWN4AV
+Apellido y nombre: Arce, Walter
+Docente:Santiago Gallino
+Carácter de entrega (1er parcial).
+
+
+
+# Proyecto HireSphere Recursos Humanos
+
+## Descripción
+El proyecto HireSphere Recursos Humanos es una aplicación web que permite a los usuarios buscar empleo y a las empresas publicar ofertas de trabajo. La aplicación cuenta con un sistema de autenticación de usuarios,
+ un buscador de empleo, un listado de ofertas de trabajo y un formulario para publicar ofertas de trabajo.
+
+ Temas completos en esta entrega:
+ * Administracion Novedades
+    * Ofertas de trabajo
+    * Registro de usuarios
+    * Inicio de sesión
+    * Publicación de ofertas de trabajo (solo para usuarios autenticados como reclutadores)
+
+    Dependiendo del rol con el que se loguea el usuario muestra un menu de perfil diferente.
+
+    El administrador puede publicar noticias
+    El reclutador puede publicar ofertas de trabajo
+    El postulante puede postularse a las ofertas de trabajo
+
+Administrador :
+    * usuario: admin@seeder.com
+    * contraseña: password
+Reclutador:
+    * usuario: reclutador@seeder.com
+    * contraseña: password
+Postulante:
+    * usuario: candidato@seeder.com
+    * contraseña: password
+

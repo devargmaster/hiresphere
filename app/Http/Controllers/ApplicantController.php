@@ -23,4 +23,9 @@ class ApplicantController extends Controller
 
         return view('recluiter.applicant', ['applicants' => $applicants]);
     }
+    public function show($id)
+    {
+        $applicant = Applicant::find($id);
+        return view('applicants.show', compact('applicant'));
+    }
 }

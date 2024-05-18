@@ -44,6 +44,10 @@ Route::get('applicant',[ApplicantController::class, 'applicant'])
     ->name('applicant');
 Route::get('applicant/{id}/edit', [ApplicantController::class, 'edit'])
     ->name('applicant.edit');
+Route::get('/applicants/{id}', [ApplicantController::class, 'show'])
+    ->name('applicants.show')
+    ->whereNumber('id')
+    ->middleware('auth');
 Route::get('news', [NewsController::class, 'index'])
     ->name('news.index');
 Route::get('news/{id}', [NewsController::class, 'show'])

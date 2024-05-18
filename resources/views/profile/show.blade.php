@@ -15,7 +15,7 @@
         @endif
         <div class="md:w-8/12 mb-5 bg-white p-6 rounded-lg shadow-xl">
             <div class="flex flex-col items-center">
-                <img src="{{ $user->applicant->image }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
+                <img src="{{ asset('images/' . $user->applicant->image) }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
                                 <h2 class="text-2xl font-bold">{{ Auth::user()->name }}</h2>
                                 <p class="text-sm text-gray-600">{{ Auth::user()->email }}</p>
             </div>

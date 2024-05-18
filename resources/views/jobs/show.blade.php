@@ -1,7 +1,17 @@
 <x-layout>
     <x-slot:title>Adm Trabajos</x-slot:title>
-    <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
+    @if (session('success'))
+        <div class="bg-green-100 rounded mb-4 border border-green-400 text-green-700 container mx-auto px-4 sm:px-8 max-w-3xl mt-4">
+            {{ session('success') }}
+        </div>
+    @endif
 
+    @if (session('error'))
+        <div class="bg-red-500 mb-4 rounded border border-red-500-400 text-white container mx-auto px-4 sm:px-8 max-w-3xl mt-4 flex justify-center items-center">
+            {{ session('error') }}
+        </div>
+    @endif
+    <div class="container mx-auto px-4 sm:px-8 max-w-3xl">
         <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-4">
             <div class="px-4 py-5 sm:px-6">
                 <h2 class="font-extrabold text-2xl mb-4">{{ $job->title }}</h2>
@@ -44,17 +54,7 @@
             </div>
         </div>
 
-        @if (session('success'))
-            <div class="alert alert-success text-green-500">
-                {{ session('success') }}
-            </div>
-        @endif
 
-        @if (session('error'))
-            <div class="alert alert-danger text-red-500">
-                {{ session('error') }}
-            </div>
-        @endif
         <form method="POST" action="{{ route('jobs.apply', $job) }}">
             @csrf
             @if(auth()->check())

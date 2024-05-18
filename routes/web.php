@@ -46,6 +46,10 @@ Route::get('applicant/{id}/edit', [ApplicantController::class, 'edit'])
     ->name('applicant.edit');
 Route::get('news', [NewsController::class, 'index'])
     ->name('news.index');
+Route::get('news/{id}', [NewsController::class, 'show'])
+    ->name('news.show')
+    ->whereNumber('id')
+    ->middleware('auth');
 Route::get('/login', [LoginController::class, 'showLoginForm'])
     ->name('login');
 Route::post('/login', [LoginController::class, 'login']);

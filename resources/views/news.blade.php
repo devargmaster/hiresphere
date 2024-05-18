@@ -9,8 +9,7 @@
                     <div class="md:w-1/2 md:pl-6">
                         <h2 class="text-2xl font-bold mb-3">{{ $new->title }}</h2>
                         <p class="mb-3">{{ $new->content }}</p>
-                        <a href="#"
-                           class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer text-white font-bold py-2 px-4 rounded">Leer
+                        <a href="{{ route('news.show', ['id' => $new->id]) }}" class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer text-white font-bold py-2 px-4 rounded">Leer
                             más</a>
                     </div>
                 </div>

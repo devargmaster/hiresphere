@@ -8,7 +8,6 @@
                 </h2>
                 <form class="mt-8 space-y-6" method="POST" action="{{ route('profile.update') }}">
                     @csrf
-                    @method('PUT')
                     <!-- Campos del usuario -->
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
@@ -52,14 +51,7 @@
                         <label for="cover_letter" class="block text-sm font-medium text-gray-700">Carta de Presentación</label>
                         <input id="cover_letter" name="cover_letter" type="text" value="{{ $applicant->cover_letter }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     </div>
-                    <div>
-                        <label for="job_id" class="block text-sm font-medium text-gray-700">ID del Trabajo</label>
-                        <input id="job_id" name="job_id" type="text" value="{{ $applicant->job_id }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    <div>
-                        <label for="status" class="block text-sm font-medium text-gray-700">Estado</label>
-                        <input id="status" name="status" type="text" value="{{ $applicant->status }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
+
                     <div>
                         <label for="notes" class="block text-sm font-medium text-gray-700">Notas</label>
                         <input id="notes" name="notes" type="text" value="{{ $applicant->notes }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">

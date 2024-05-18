@@ -4,10 +4,13 @@ use App\Http\Controllers\AdminJobController;
 use App\Http\Controllers\AdminNewsController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SuscriptionSignupController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,28 +23,23 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+/**
+ * Rutas para el usuario
+ */
 Route::get('/',[HomeController::class, 'home'])
     ->name('home');
-Route::get('register',[\App\Http\Controllers\RegisterController::class, 'create'])
+Route::get('register',[RegisterController::class, 'create'])
     ->name('register');
 Route::get('about',[HomeController::class, 'about'])
     ->name('about');
-Route::get('login',[\App\Http\Controllers\UserController::class, 'login'])
+Route::get('login',[UserController::class, 'login'])
     ->name('login');
-Route::get('news',[\App\Http\Controllers\NewsController::class, 'news'])
+Route::get('news',[NewsController::class, 'news'])
     ->name('news');
-Route::get('profile',[ProfileController::class, 'profile'])
-    ->name('profile')
-    ->middleware('auth');
-Route::get('profile/edit', [ProfileController::class, 'edit'])
-    ->middleware('auth')
-    ->name('edit.profile');
-Route::put('profile', [ProfileController::class, 'update'])
-    ->middleware('auth')
-    ->name('profile.update');
+
 Route::get('suscription',[SuscriptionSignupController::class, 'suscriptions'])
     ->name('suscription');
+
 Route::get('applicant',[ApplicantController::class, 'applicant'])
     ->name('applicant');
 Route::get('applicant/{id}/edit', [ApplicantController::class, 'edit'])
@@ -52,6 +50,28 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])
     ->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
+/**
+ * Rutas para el perfil del usuario
+ */
+Route::prefix('profile')->group(function(){
+    Route::get('/',[ProfileController::class, 'show'])
+        ->name('profile.show')
+        ->middleware('auth');
+    Route::get('/menu',[ProfileController::class,'menu'])
+        ->name('profile.menu')
+        ->middleware('auth');
+    Route::get('edit', [ProfileController::class, 'edit'])
+        ->name('edit.profile')
+        ->middleware('auth');
+    Route::post('update', [ProfileController::class, 'update'])
+        ->name('profile.update')
+        ->middleware('auth');
+});
+
+
+/**
+ * Rutas para el administrador
+ */
 Route::prefix('admin')->group(function () {
     Route::get('/news', [AdminNewsController::class, 'index'])
         ->name('admin.news.index')
@@ -81,30 +101,32 @@ Route::prefix('admin')->group(function () {
         ->middleware('auth');
 });
 
-Route::get('/profile/menu', [ProfileController::class, 'menu'])->name('profile.menu');
-Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+
 Route::get('jobs/applicants', [AdminJobController::class, 'showApplicants'])
     ->name('recluiter.jobs.applicants')
     ->middleware('auth');
-Route::delete('applicant/{id}', [\App\Http\Controllers\ApplicantController::class, 'delete'])
+Route::delete('applicant/{id}', [ApplicantController::class, 'delete'])
     ->name('applicant.delete')
     ->whereNumber('id');
-Route::post('registro', [\App\Http\Controllers\RegisterController::class, 'store'])
+Route::post('registro', [RegisterController::class, 'store'])
     ->name('register.store')
     ->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])
     ->name('logout')
     ->middleware('auth');
-Route::get('jobs', [\App\Http\Controllers\JobController::class, 'index'])
+Route::get('jobs', [JobController::class, 'index'])
     ->name('jobs.index');
-Route::get('/jobs/{job}', [\App\Http\Controllers\JobController::class, 'show'])
+Route::get('/jobs/{job}', [JobController::class, 'show'])
     ->name('jobs.show')
-    ->whereNumber('job');
-Route::post('/jobs/{job}/apply', [\App\Http\Controllers\JobController::class, 'apply'])
+    ->whereNumber('job')
+    ->middleware('auth');
+Route::post('/jobs/{job}/apply', [JobController::class, 'apply'])
     ->name('jobs.apply')
     ->middleware('auth');
 
-
+/**
+ * Rutas para el reclutador
+ */
 Route::prefix('recluiter')->group(function () {
     Route::get('jobs', [AdminJobController::class, 'index'])
         ->name('recluiter.jobs.index')

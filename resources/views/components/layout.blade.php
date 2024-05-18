@@ -27,7 +27,7 @@
             @if(auth()->check())
                 <div id="profile-container" class="relative font-bold uppercase text-red-800 text-sm cursor-pointer">
                     <div id="profile-link">
-                        <a class="block px-4 py-2 text-red-800 font-bold hover:bg-gray-100 uppercase text-sm" href="{{ route('profile.menu') }}"> Perfil</a>
+                        <a class="block px-4 py-2 text-red-800 font-bold hover:bg-white " href="{{ route('profile.menu') }}"> <img src="{{ asset('storage/profile.png') }}" alt="Perfil" class="h-12 w-auto mb-2"/></a>
                     </div>
                 </div>
             @endif

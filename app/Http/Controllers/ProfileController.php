@@ -8,15 +8,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    /**
-     * Muestra el perfil del usuario
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function profile()
-    {
-        return view('profile.profile');
-    }
+
+
     /**
      * Muestra el formulario de edición del perfil del usuario
      *
@@ -59,8 +52,8 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
+
         $request->validate([
-            // Valida aquí los nuevos campos
             'phone' => 'required',
             'address' => 'required',
             'city' => 'required',
@@ -69,23 +62,27 @@ class ProfileController extends Controller
             'country' => 'required',
             'resume' => 'required',
             'cover_letter' => 'required',
-            'job_id' => 'required',
-            'status' => 'required',
             'notes' => 'required',
-            'source' => 'required',
-            'ip_address' => 'required',
-            'user_agent' => 'required',
-            'referrer' => 'required',
-            'applied_at' => 'required|date',
         ]);
 
         $user = Auth::user();
         $user->update($request->only('name', 'email'));
 
         $applicant = $user->applicant;
-        $applicant->update($request->only('phone', 'address', 'city', 'state', 'zip', 'country', 'resume', 'cover_letter', 'job_id', 'status', 'notes', 'source', 'ip_address', 'user_agent', 'referrer', 'applied_at'));
+        $applicant->update($request->only(
+            'phone',
+            'address',
+            'city',
+            'state',
+            'zip',
+            'country',
+            'resume',
+            'cover_letter',
+            'status',
+            'notes',
+            'referrer'));
 
-        return redirect()->route('profile.edit')->with('status', 'Perfil actualizado con éxito');
+        return redirect()->route('profile.show')->with('status', 'Perfil actualizado con éxito');
     }
     /**
      * Muestra el menú del usuario

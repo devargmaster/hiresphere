@@ -59,4 +59,8 @@ class User extends Authenticatable
     {
         return $this->role_id == 5;
     }
+    public function applicant()
+    {
+        return $this->hasOne(Applicant::class);
+    }
 }

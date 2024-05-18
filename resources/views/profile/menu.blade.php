@@ -1,9 +1,10 @@
 <x-layout>
-    <x-slot:title>Editar Perfil</x-slot:title>
-    <div id="profile-container" class="relative font-bold uppercase text-red-800 text-sm cursor-pointer mx-auto flex justify-center">
+    <x-slot:title>Menú Perfil</x-slot:title>
+    <div id="profile-container" class="relative mx-auto mt-2 w-48 bg-white rounded-md shadow-lg z-50 flex flex-col justify-center items-center text-left">
         @auth
+            <x-sidebar />
             <div id="profile-menu" class="relative mx-auto mt-2 w-48 bg-white rounded-md shadow-lg z-50 flex flex-col justify-center items-center text-left">
-                <a href="{{ route('profile.show') }}">{{ auth()->user()->name }}  ({{ auth()->user()->role->name }})</a>
+
                 @if(auth()->user()->role_id == 1)
                     <a href="{{ route('admin.news.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar News</a>
                 @endif

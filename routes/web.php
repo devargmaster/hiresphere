@@ -151,3 +151,5 @@ Route::prefix('recluiter')->group(function () {
         ->whereNumber('id')
         ->middleware('auth');
 });
+Route::get('/profile/change-password', [ProfileController::class, 'ChangePassword'])->name('profile.ChangePassword');
+Route::post('/profile/update-password', [ProfileController::class, 'UpdatePassword'])->name('profile.update-password');

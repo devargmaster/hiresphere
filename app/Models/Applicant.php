@@ -29,6 +29,7 @@ class Applicant extends Model
         'user_agent',
         'referrer',
         'applied_at',
+        'image'
     ];
     public function job()
     {
@@ -38,4 +39,5 @@ class Applicant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
 }

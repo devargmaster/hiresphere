@@ -6,7 +6,7 @@
                 <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
                     Editar Perfil
                 </h2>
-                <form class="mt-8 space-y-6" method="POST" action="{{ route('profile.update') }}">
+                <form class="mt-8 space-y-6" method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
                     @csrf
                     <!-- Campos del usuario -->
                     <div>
@@ -18,6 +18,10 @@
                         <input id="email" name="email" type="email" value="{{ $user->email }}" required class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     </div>
                     <!-- Campos del solicitante -->
+                    <div>
+                        <label for="image" class="block text-sm font-medium text-gray-700">Foto de perfil</label>
+                        <input id="image" name="image" type="file" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
                     <div>
                         <label for="phone" class="block text-sm font-medium text-gray-700">Teléfono</label>
                         <input id="phone" name="phone" type="text" value="{{ $applicant->phone }}" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">

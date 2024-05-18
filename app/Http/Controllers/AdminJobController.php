@@ -95,8 +95,16 @@ class AdminJobController extends Controller
      */
     public function destroy($id)
     {
-        $job = Job::find($id);
-        $job->delete();
+        try {
+            $job = Job::find($id);
+            $job->delete();
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->getCode() == 23000) {
+                return redirect()->back()->withErrors(['error' => 'No se puede eliminar este trabajo porque tiene postulantes asociados.']);
+            }
+            throw $e;
+        }
+
         return redirect()->route('recluiter.jobs.index');
     }
     /**

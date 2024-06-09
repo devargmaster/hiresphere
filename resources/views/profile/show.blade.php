@@ -15,10 +15,15 @@
         @endif
         <div class="md:w-8/12 mb-5 bg-white p-6 rounded-lg shadow-xl">
             <div class="flex flex-col items-center">
-                <img src="{{ asset('images/' . $user->applicant->image) }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
+                @if($user->applicant)
+                    <img src="{{ asset('images/' . $user->applicant->image) }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
+                @else
+                    <img src="{{ asset('img/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
+                @endif
                                 <h2 class="text-2xl font-bold">{{ Auth::user()->name }}</h2>
                                 <p class="text-sm text-gray-600">{{ Auth::user()->email }}</p>
             </div>
+
         </div>
 
         <div class="md:w-8/12 mb-5 bg-white p-6 rounded-lg shadow-xl">

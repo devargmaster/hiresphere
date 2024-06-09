@@ -8,7 +8,7 @@
         </div>
     @endif
     <div class="md:flex md:flex-col md:items-center text-center">
-        <h1 class="text-4xl font-bold">Bienvenido a HireSphere</h1>
+        <h2 class="text-4xl font-bold">Bienvenido a HireSphere</h2>
         <p class="text-xl">Tu portal para las oportunidades laborales más atractivas del mercado.</p>
 
         <img src="{{ asset('img/workimage.webp') }}" alt="Buscar Trabajo"

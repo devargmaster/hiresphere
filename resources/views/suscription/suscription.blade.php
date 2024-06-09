@@ -3,7 +3,7 @@
 
     <h2 class="font-black text-3xl text-center md:flex md:justify-center mt-6">Mejora tu perfil tanto de candidato como de reclutador</h2>
     <div class="container mx-auto px-4 py-6">
-        <h1 class="text-3xl font-bold text-center mb-6">Opciones de Suscripción</h1>
+        <h2 class="text-4xl font-bold text-center mb-6">Opciones de Suscripción</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
             <!-- Card Free -->
             <div class="bg-white p-4 shadow rounded-lg transition transform hover:scale-105">

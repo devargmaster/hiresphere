@@ -17,7 +17,7 @@
             </div>
         </div>
         <div class="w-full md:w-9/12 px-4">
-            <h1 class="text-3xl font-bold mt-6 mb-4 w-full">Bolsa de trabajo</h1>
+            <h2 class="text-4xl font-bold mt-6 mb-4 w-full">Bolsa de trabajo</h2>
             @foreach($jobs as $job)
                 <div class="bg-white p-6 rounded-lg shadow-xl mb-4">
                     <div class="flex items-center mb-4">

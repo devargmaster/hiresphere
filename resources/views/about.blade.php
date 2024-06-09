@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Nosotros</x-slot:title>
     <div class="md:flex md:flex-col md:justify-center md:items-center text-center">
-        <h1 class="text-3xl font-bold mt-6 mb-2">Acerca de HireSphere</h1>
+        <h2 class="text-4xl font-bold mt-6 mb-2">Acerca de HireSphere</h2>
         <p class="mb-6">HireSphere ofrece una plataforma innovadora que conecta a quienes buscan trabajo con
             empleadores, actuando como una red social del mercado laboral.</p>
 

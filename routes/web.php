@@ -107,6 +107,9 @@ Route::prefix('admin')->group(function () {
         ->name('admin.news.confirmDelete')
         ->whereNumber('id')
         ->middleware('auth');
+    Route::get('/users', [UserController::class, 'index'])
+        ->name('admin.users.index')
+        ->middleware('auth');
 });
 
 

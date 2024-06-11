@@ -7,6 +7,7 @@
 
                 @if(auth()->user()->role_id == 1)
                     <a href="{{ route('admin.news.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar News</a>
+                    <a href="{{ route('admin.users.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Administrar Usuarios</a>
                 @endif
                 @if(auth()->user()->role_id == 4)
                     <a href="{{ route('recluiter.jobs.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Empleos</a>

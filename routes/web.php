@@ -83,7 +83,7 @@ Route::prefix('profile')->group(function(){
 Route::prefix('admin')->group(function () {
     Route::get('/news', [AdminNewsController::class, 'index'])
         ->name('admin.news.index')
-        ->middleware('auth');
+        ->middleware('is_admin');
     Route::get('/news/create', [AdminNewsController::class, 'create'])
         ->name('admin.news.create')
         ->middleware('auth')

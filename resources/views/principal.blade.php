@@ -7,6 +7,13 @@
             </div>
         </div>
     @endif
+    @if(session('error'))
+        <div class="bg-red-100 border border-red-400 text-red-700 container mx-auto px-4 sm:px-8 max-w-3xl mt-4">
+            <div class="py-8">
+                <strong class="font-bold">{{ session('error') }}</strong>
+            </div>
+        </div>
+    @endif
     <div class="md:flex md:flex-col md:items-center text-center">
         <h2 class="text-4xl font-bold">Bienvenido a HireSphere</h2>
         <p class="text-xl">Tu portal para las oportunidades laborales más atractivas del mercado.</p>

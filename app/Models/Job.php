@@ -21,4 +21,8 @@ class Job extends Model
     {
         return $this->belongsToMany(Applicant::class, 'applicant_job', 'job_id', 'applicant_id')->withTimestamps();
     }
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
+    }
 }

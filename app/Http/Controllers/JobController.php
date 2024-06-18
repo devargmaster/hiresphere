@@ -16,7 +16,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        $jobs = Job::orderBy('created_at', 'desc')->paginate(10);
+        $jobs = auth()->user()->jobs()->orderBy('created_at', 'desc')->paginate(10);
         return view('jobs', ['jobs' => $jobs]);
     }
     /**

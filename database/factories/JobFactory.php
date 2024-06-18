@@ -45,7 +45,7 @@ class JobFactory extends Factory
         return [
             'title' => $this->faker->jobTitle,
             'description' => $this->faker->randomElement($descriptions),
-            'user_id' => 1,
+            'user_id' => rand(1, 3),
             'company_name' => $this->faker->company,
             'location' => $this->faker->city,
             'salary' => $this->faker->randomFloat(2, 1000, 20000),

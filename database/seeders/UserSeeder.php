@@ -20,6 +20,18 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password'),
             'role_id' => 4,
         ]);
+        User::create([
+            'name' => 'Reclutador 2',
+            'email' => 'reclutador2@seeder.com',
+            'password' => Hash::make('password'),
+            'role_id' => 4,
+        ]);
+        User::create([
+            'name' => 'Reclutador 3',
+            'email' => 'reclutador3@seeder.com',
+            'password' => Hash::make('password'),
+            'role_id' => 4,
+        ]);
 
         User::create([
             'name' => 'Candidato',

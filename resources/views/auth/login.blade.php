@@ -18,6 +18,7 @@
                            id="email"
                            name="email"
                            placeholder="Ingresa tu email"
+                           value="{{ old('email') }}"
                            class="border p-3 w-full rounded-lg"/>
                     @error('email')
                     <div class="text-red-500">{{ $message }}</div>

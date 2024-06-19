@@ -87,29 +87,29 @@ Route::prefix('admin')->group(function () {
     Route::get('/news/create', [AdminNewsController::class, 'create'])
         ->name('admin.news.create')
         ->middleware('auth')
-        ->middleware('auth');
+        ->middleware('is_admin');
     Route::post('/news', [AdminNewsController::class, 'store'])
         ->name('admin.news.store')
-        ->middleware('auth');
+        ->middleware('is_admin');
     Route::get('/news/{id}/edit', [AdminNewsController::class, 'edit'])
         ->name('admin.news.edit')
         ->whereNumber('id')
-        ->middleware('auth');
+        ->middleware('is_admin');
     Route::put('/news/{id}', [AdminNewsController::class, 'update'])
         ->name('admin.news.update')
         ->whereNumber('id')
-        ->middleware('auth');
+        ->middleware('is_admin');
     Route::delete('/news/{id}', [AdminNewsController::class, 'destroy'])
         ->name('admin.news.destroy')
         ->whereNumber('id')
-        ->middleware('auth');
+        ->middleware('is_admin');
     Route::get('/news/{id}/newsconfirmDelete', [AdminNewsController::class, 'confirmDelete'])
         ->name('admin.news.confirmDelete')
         ->whereNumber('id')
-        ->middleware('auth');
+        ->middleware('is_admin');
     Route::get('/users', [UserController::class, 'index'])
         ->name('admin.users.index')
-        ->middleware('auth');
+        ->middleware('is_admin');
 });
 
 

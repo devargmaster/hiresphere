@@ -14,26 +14,23 @@
                 <h2 class="text-2xl leading-tight">
                     Listado de usuarios
                 </h2>
-                <a href="{{ route('admin.news.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    Crear Noticia
-                </a>
+
             </div>
             <div class="py-4">
-                <table class="table-auto w-full">
-                    <thead>
+                <table class="table-auto w-full bg-white shadow-md rounded-lg overflow-hidden">
+                    <thead class="bg-gray-50">
                     <tr>
-                        <th class="px-4 py-2">Usuario</th>
-                        <th class="px-4 py-2">Email</th>
-                        <th class="px-4 py-2">Tipo de Suscripcion</th>
+                        <th class="px-4 py-2 text-left text-gray-500">Usuario</th>
+                        <th class="px-4 py-2 text-left text-gray-500">Email</th>
+                        <th class="px-4 py-2 text-left text-gray-500">Tipo de Suscripcion</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="text-gray-700">
                     @foreach($users as $user)
-                        <tr>
+                        <tr class="hover:bg-gray-100">
                             <td class="border px-4 py-2">{{ $user->name }}</td>
                             <td class="border px-4 py-2">{{ $user->email }}</td>
                             <td class="border px-4 py-2">{{ $user->subscription_type }}</td>
-                            <!-- Agrega más celdas aquí para mostrar más información del usuario si lo deseas -->
                         </tr>
                     @endforeach
                     </tbody>

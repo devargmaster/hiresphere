@@ -6,7 +6,7 @@ Turno: Noche
 Comisión:DWN4AV
 Apellido y nombre: Arce, Walter
 Docente:Santiago Gallino
-Carácter de entrega (1er parcial).
+Carácter de entrega (2do parcial).
 
 
 
@@ -17,13 +17,13 @@ El proyecto HireSphere Recursos Humanos es una aplicación web que permite a los
  un buscador de empleo, un listado de ofertas de trabajo y un formulario para publicar ofertas de trabajo.
 
  Temas completos en esta entrega:
- * Administracion Novedades
+ * Administración Novedades
     * Ofertas de trabajo
     * Registro de usuarios
     * Inicio de sesión
     * Publicación de ofertas de trabajo (solo para usuarios autenticados como reclutadores)
 
-    Dependiendo del rol con el que se loguea el usuario muestra un menu de perfil diferente.
+    Dependiendo del rol con el que se loguea el usuario muestra un menú de perfil diferente.
 
     El administrador puede publicar noticias
     El reclutador puede publicar ofertas de trabajo
@@ -35,7 +35,14 @@ Administrador :
 Reclutador:
     * usuario: reclutador@seeder.com
     * contraseña: password
+Reclutador2:
+    * usuario: reclutador2@seeder.com
+    * contraseña: password
+Reclutador3:
+    * usuario: reclutador3@seeder.com
+    * contraseña: password
 Postulante:
     * usuario: candidato@seeder.com
     * contraseña: password
 
+En esta versión se agrega el middleware isadmin, seeder solicitado, listado de usuarios con servicio contratado

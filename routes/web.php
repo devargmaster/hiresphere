@@ -65,9 +65,6 @@ Route::prefix('profile')->group(function(){
     Route::get('/',[ProfileController::class, 'show'])
         ->name('profile.show')
         ->middleware('auth');
-    Route::get('/menu',[ProfileController::class,'menu'])
-        ->name('profile.menu')
-        ->middleware('auth');
     Route::get('edit', [ProfileController::class, 'edit'])
         ->name('edit.profile')
         ->middleware('auth');

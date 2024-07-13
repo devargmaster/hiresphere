@@ -3,6 +3,7 @@
     <div id="profile-container" class="relative mx-auto mt-2 w-48 bg-white rounded-md shadow-lg z-50 flex flex-col justify-center items-center text-left">
         @auth
             <x-sidebar />
+
             <div id="profile-menu" class="relative mx-auto mt-2 w-48 bg-white rounded-md shadow-lg z-50 flex flex-col justify-center items-center text-left">
 
                 @if(auth()->user()->role_id == 1)

@@ -33,7 +33,7 @@ class ProfileController extends Controller
                 'country' => '',
                 'resume' => '',
                 'cover_letter' => '',
-                'job_id' => '',
+                'job_id' => 0,
                 'status' => '',
                 'notes' => '',
                 'source' => '',
@@ -102,10 +102,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function menu()
+    public function menu(): \Illuminate\Http\Response
     {
         $user = auth()->user();
-        return view('profile.menu', compact('user'));
+        return view('profile', compact('user'));
     }
     /**
      * Muestra el perfil del usuario

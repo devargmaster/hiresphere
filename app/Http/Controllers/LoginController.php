@@ -11,13 +11,17 @@ class LoginController extends Controller
      * Inicia sesión del usuario
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function login(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+        ], [
+            'email.required' => __('El campo correo electrónico es obligatorio.'),
+            'email.email' => __('El campo correo electrónico debe ser una dirección de correo válida.'),
+            'password.required' => __('El campo contraseña es obligatorio.'),
         ]);
 
         $credentials = $request->only('email', 'password');

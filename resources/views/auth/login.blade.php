@@ -5,6 +5,7 @@
             {{ session('feedback.message') }}
         </div>
     @endif
+    <h2 class="text-4xl font-bold">Ingreso de usuario</h2>
     <div class="md:flex md:justify-center md:gap-10 md:items-center">
         <div class="md:w-6/12">
             <img src="{{'img/login.jpg'}}" alt="Imagen de login" class="mt-4"/>

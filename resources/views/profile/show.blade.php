@@ -38,6 +38,13 @@
                     </div>
                 @endauth
             </div>
+            @if(auth()->check() && auth()->user()->role_id == 1)
+                <div>
+                    {{-- Contenido exclusivo para administradores --}}
+                    <p>Bienvenido, administrador. Aquí puedes ver las estadísticas importantes.</p>
+                    {{-- Puedes incluir más contenido específico para administradores aquí --}}
+                </div>
+            @endif
         </div>
 
         {{-- Contenido principal en otra columna --}}

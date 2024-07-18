@@ -22,6 +22,9 @@
                     <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">Username:</label>
                     <input type="text" id="username" name="username" placeholder="Ingresa tu username"
                            class="border p-3 w-full rounded-lg"/>
+                    @error('username')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -37,6 +40,9 @@
                     <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password:</label>
                     <input type="password" id="password" name="password" placeholder="Ingresa tu password"
                            class="border p-3 w-full rounded-lg"/>
+                    @error('password')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-5">
@@ -44,6 +50,9 @@
                         Password:</label>
                     <input type="password" id="password_confirmation" name="password_confirmation"
                            placeholder="Repite tu password" class="border p-3 w-full rounded-lg"/>
+                    @error('password_confirmation')
+                    <div class="text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <div class="mb-4">

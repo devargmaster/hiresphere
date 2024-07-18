@@ -11,7 +11,11 @@
                 <h2 class="text-xl font-bold mt-4">Plan Free</h2>
                 <p class="mt-2">Acceso a ofertas básicas de empleo, envío de aplicaciones limitadas y visibilidad estándar en la plataforma.</p>
                 <div class="mt-4">
-                    <button class="bg-gray-300 text-black font-bold py-2 px-4 rounded hover:bg-gray-400">Quedarse con Gratuito</button>
+                    @guest
+                        <a href="{{ route('register') }}" class="bg-gray-300 text-black font-bold py-2 px-4 rounded hover:bg-gray-400">Gratuito</a>
+                    @else
+                        <button class="bg-gray-300 text-black font-bold py-2 px-4 rounded hover:bg-gray-400">Quedarse con Gratuito</button>
+                    @endguest
                 </div>
             </div>
 
@@ -21,7 +25,11 @@
                 <h2 class="text-xl font-bold text-white mt-4">Premium Mensual</h2>
                 <p class="text-white mt-2">Acceso ilimitado a todas las ofertas, destacado en listados y análisis avanzados de perfil.</p>
                 <div class="mt-4">
-                    <button class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</button>
+                    @guest
+                        <a href="{{ route('register') }}" class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</a>
+                    @else
+                        <button class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</button>
+                    @endguest
                 </div>
             </div>
 
@@ -31,7 +39,11 @@
                 <h2 class="text-xl font-bold mt-4">Anual - 15% Descuento</h2>
                 <p class="mt-2">Todos los beneficios del Premium por un año, con un ahorro del 15% sobre la tarifa mensual.</p>
                 <div class="mt-4">
-                    <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">Suscribirse</button>
+                    @guest
+                        <a href="{{ route('register') }}" class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</a>
+                    @else
+                        <button class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</button>
+                    @endguest
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@
                     @guest
                         <a href="{{ route('register') }}" class="bg-gray-300 text-black font-bold py-2 px-4 rounded hover:bg-gray-400">Gratuito</a>
                     @else
-                        <button class="bg-gray-300 text-black font-bold py-2 px-4 rounded hover:bg-gray-400">Quedarse con Gratuito</button>
+                        <button id="stayFreeButton" class="bg-gray-300 text-black font-bold py-2 px-4 rounded hover:bg-gray-400">Quedarse con Gratuito</button>
                     @endguest
                 </div>
             </div>
@@ -28,7 +28,7 @@
                     @guest
                         <a href="{{ route('register') }}" class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</a>
                     @else
-                        <button class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</button>
+                        <button id="subscribeMonthlyButton" class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</button>
                     @endguest
                 </div>
             </div>
@@ -42,10 +42,34 @@
                     @guest
                         <a href="{{ route('register') }}" class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</a>
                     @else
-                        <button class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</button>
+                        <button id="subscribeAnnualButton" class="bg-white text-blue-500 font-bold py-2 px-4 rounded hover:bg-gray-100">Suscribirse</button>
                     @endguest
                 </div>
             </div>
         </div>
     </div>
 </x-layout>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var subscribeMonthlyButton = document.getElementById('subscribeMonthlyButton');
+        var subscribeAnnualButton = document.getElementById('subscribeAnnualButton');
+        var stayFreeButton = document.getElementById('stayFreeButton');
+        if (stayFreeButton) {
+            stayFreeButton.addEventListener('click', function() {
+                window.location.href = '/';
+            });
+        }
+        if (subscribeMonthlyButton) {
+            subscribeMonthlyButton.addEventListener('click', function() {
+                window.location.href = '/test/mercadopago?plan=mensual';
+            });
+        }
+
+        if (subscribeAnnualButton) {
+            subscribeAnnualButton.addEventListener('click', function() {
+                window.location.href = '/test/mercadopago?plan=anual';
+            });
+        }
+    });
+
+</script>

@@ -161,3 +161,6 @@ Route::prefix('recluiter')->group(function () {
 });
 Route::get('/profile/change-password', [ProfileController::class, 'ChangePassword'])->name('profile.ChangePassword');
 Route::post('/profile/update-password', [ProfileController::class, 'UpdatePassword'])->name('profile.update-password');
+Route::get('test/mercadopago', [\App\Http\Controllers\MercadoPagoController::class, 'show'])
+    ->name('test.mercadopago.show')
+    ->middleware('no_admin');

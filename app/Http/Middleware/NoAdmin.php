@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsAdmin
+class NoAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,10 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->isAdmin()) {
+        if (auth()->check() && !auth()->user()->isAdmin()) {
             return $next($request);
         }
-        return redirect('/')->with('error', 'No tienes permisos para acceder a esta página '.$request->url());
+        return redirect('/')->with('error', 'No es necesario el administrador aqui '.$request->url());
 
     }
 }

@@ -164,3 +164,9 @@ Route::post('/profile/update-password', [ProfileController::class, 'UpdatePasswo
 Route::get('test/mercadopago', [\App\Http\Controllers\MercadoPagoController::class, 'show'])
     ->name('test.mercadopago.show')
     ->middleware('no_admin');
+Route::get('test/mercadopagook', [\App\Http\Controllers\MercadoPagoController::class, 'success'])
+    ->name('test.mercadopagook');
+Route::get('test/mercadopagofail', [\App\Http\Controllers\MercadoPagoController::class, 'failure'])
+    ->name('test.mercadopagofail');
+Route::get('test/mercadopagopending', [\App\Http\Controllers\MercadoPagoController::class, 'pending'])
+    ->name('test.mercadopagopending');

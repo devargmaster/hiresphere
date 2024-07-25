@@ -40,6 +40,16 @@ class UserSeeder extends Seeder
             'name' => 'Candidato',
             'email' => 'candidato@seeder.com',
             'password' => Hash::make('password'),
+            'subscription_type' => 'Free',
+            'initial_subscription' => 'Free',
+            'role_id' => 5,
+        ]);
+        User::create([
+            'name' => 'Candidato2',
+            'email' => 'candidato2@seeder.com',
+            'password' => Hash::make('password'),
+            'subscription_type' => 'Free',
+            'initial_subscription' => 'Free',
             'role_id' => 5,
         ]);
 

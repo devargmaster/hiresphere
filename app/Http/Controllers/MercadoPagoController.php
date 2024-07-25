@@ -21,28 +21,41 @@ class MercadoPagoController extends Controller
         $preference = $client->create([
             'items' => [
                 [
-                    'title' => 'Suscripcion',
+                    'title' => 'Suscripcion HireSphere',
                     'quantity' => 1,
                     'currency_id' => 'ARS',
-                    'unit_price' => 1000
+                    'unit_price' => 500
                 ]
             ],
             'back_urls' => [
-                'success' => 'http://localhost:8000/mercadopago/success',
-                'failure' => 'http://localhost:8000/mercadopago/failure',
-                'pending' => 'http://localhost:8000/mercadopago/pending'
+                'success' => 'http://localhost:8000/test/mercadopagook',
+                'failure' => 'http://localhost:8000/test/mercadopagofail',
+                'pending' => 'http://localhost:8000/test/mercadopagopending'
             ]
         ]);
 
-
-        //Buscar cliente para cobrar suscripcion por medio de mercadopago
         $suscriptor = auth()->user();
-        // mostrar la vista de mercadopago
+
         return view ('test.mercadopago',
         [
             'suscriptor' => $suscriptor,
             'preference' => $preference,
             'mpPublicKey' => config('mercadopago.public_key'),
         ]);
+    }
+    public function success()
+    {
+        $mercadopagook = 'Pago exitoso';
+        return view('test.mercadopagook', ['mercadopagook' => $mercadopagook]);
+    }
+    public function failure()
+    {
+        $mercadopagofail = 'Pago fallido';
+        return view('test.mercadopagofail', ['mercadopagofail' => $mercadopagofail]);
+    }
+    public function pending()
+    {
+        $mercadopagopending = 'Pago pendiente';
+        return view('test.mercadopagopending', ['mercadopagopending' => $mercadopagopending]);
     }
 }

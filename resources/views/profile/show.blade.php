@@ -38,13 +38,14 @@
                     </div>
                 @endauth
             </div>
-            @if(auth()->check() && auth()->user()->role_id == 1)
-                <div>
-                    {{-- Contenido exclusivo para administradores --}}
-                    <p>Bienvenido, administrador. Aquí puedes ver las estadísticas importantes.</p>
-                    {{-- Puedes incluir más contenido específico para administradores aquí --}}
+            <div class="mb-5 mt-4 bg-white p-6 rounded-lg shadow-xl">
+                <h2 class="text-2xl font-bold">Información del Perfil</h2>
+                <p class="mt-3">Descripción o detalles adicionales sobre el usuario.</p>
+                <div class="mt-4">
+                    <a href="{{ route('edit.profile') }}" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Editar Perfil</a>
                 </div>
-            @endif
+            </div>
+
         </div>
 
         {{-- Contenido principal en otra columna --}}
@@ -61,14 +62,75 @@
                     <p class="text-sm text-gray-600">{{ Auth::user()->email }}</p>
                 </div>
             </div>
+            @if(auth()->check() && auth()->user()->role_id == 1)
+                <div class="container mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Total de Suscriptores -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title font-bold text-center">Total de Suscriptores</h2>
+                                <p class="card-text text-center">{{ $totalSubscribers }}</p>
+                            </div>
+                        </div>
 
-            <div class="mb-5 bg-white p-6 rounded-lg shadow-xl">
-                <h2 class="text-2xl font-bold">Información del Perfil</h2>
-                <p class="mt-3">Descripción o detalles adicionales sobre el usuario.</p>
-                <div class="mt-4">
-                    <a href="{{ route('edit.profile') }}" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Editar Perfil</a>
+                        <!-- Usuarios Gratuitos -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title font-bold text-center">Usuarios Gratuitos</h2>
+                                <p class="card-text text-center">{{ $freeUsers }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Plan Más Popular -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title font-bold text-center">Plan Más Popular</h2>
+                                <p class="card-text text-center">{{ ucfirst($mostPopularPlan) }}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="container mx-auto px-4 mt-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Total de Reclutadores -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title font-bold text-center">Total de Reclutadores</h2>
+                                <p class="card-text text-center">{{ $totalRecluiters }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Total Candidatos -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title font-bold text-center">Total Candidatos</h2>
+                                <p class="card-text text-center">{{ $totalCandidates }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Plan Más Popular -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title font-bold text-center">Suscription Rate</h2>
+                                <p class="card-text text-center">{{ $subscriptionConversionRate }}%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
         </div>
     </div>
 </x-layout>
+<style>
+    .card {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card-body {
+        margin-top: 1rem;
+    }
+</style>

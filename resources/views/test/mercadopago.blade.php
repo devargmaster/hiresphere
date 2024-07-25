@@ -1,6 +1,7 @@
 <?php
 /** @var \MercadoPago\Resources\Preference $preference */
 /** @var string $mpPublicKey */
+$selectedPlan = $selectedPlan ?? 'mensual';
 ?>
 <x-layout>
     <x-slot:title>Suscripción</x-slot:title>
@@ -8,22 +9,19 @@
         <div class="container mx-auto px-4 py-6">
             <h2 class="text-4xl font-bold text-center mb-6">Hola, {{ auth()->user()->name }}!</h2>
             <p class="text-center mb-4">Elige tu plan de suscripción:</p>
-            <form action="/ruta-de-destino" method="POST">
+            <form id="subscription-form" action="/ruta-de-destino" method="POST">
                 @csrf
                 <div class="flex justify-center space-x-4 mb-6">
                     <!-- Opción Mensual -->
-                    <div class="card" >
-                        <input type="hidden" name="plan" value="mensual" onclick="this.closest('form').submit()">
-                        <h3 class="text-xl font-bold">Mensual</h3>
-                        <p>Precio: $50</p>
-                    </div>
+                    <label class="card" data-plan="mensual">
+                        <input type="radio" name="plan" value="mensual" class="mr-2">Mensual - $50
+                    </label>
                     <!-- Opción Anual -->
-                    <div class="card" >
-                        <input type="hidden" name="plan" value="anual" onclick="this.closest('form').submit()">
-                        <h3 class="text-xl font-bold">Anual</h3>
-                        <p>Precio: $500</p>
-                    </div>
+                    <label class="card" data-plan="anual">
+                        <input type="radio" name="plan" value="anual" class="mr-2">Anual - $500
+                    </label>
                 </div>
+                <button type="submit" class="btn">Pagar</button>
             </form>
             <div id="wallet_container"></div>
         </div>
@@ -31,7 +29,6 @@
         <script>window.location.href = '/login';</script>
     @endauth
 </x-layout>
-
 <style>
     .selected {
         border-color: #007bff; /* Cambia el color del borde */
@@ -62,32 +59,18 @@
 <script src="https://sdk.mercadopago.com/js/v2"></script>
 <script>
 
-    const mp = new MercadoPago('<?= $mpPublicKey;?>');
-    const bricksBuilder = mp.bricks();
-
-    mp.bricks().create("wallet", "wallet_container", {
-        initialization: {
-            preferenceId: '<?= $preference->id;?>',
-        },
-        customization: {
-            texts: {
-                valueProp: 'smart_option',
-            },
-        },
-    });
     document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.card');
-        const selectedPlanInput = document.querySelector('input[name="plan"]');
-
-        cards.forEach(card => {
-            card.addEventListener('click', function() {
-                // Deselecciona cualquier tarjeta previamente seleccionada
-                cards.forEach(c => c.classList.remove('selected'));
-                // Selecciona la tarjeta actual
-                this.classList.add('selected');
-                // Actualiza el valor del input oculto
-                selectedPlanInput.value = this.dataset.plan;
-            });
+        const mp = new MercadoPago('<?= $mpPublicKey; ?>');
+        mp.bricks().create("wallet", "wallet_container", {
+            initialization: {
+                preferenceId: '<?= $preference->id; ?>',
+            },
+            customization: {
+                texts: {
+                    valueProp: 'smart_option',
+                },
+            },
         });
     });
+
 </script>

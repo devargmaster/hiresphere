@@ -76,7 +76,7 @@ class ApplicantSeeder extends Seeder
             'ip_address' => '',
             'user_agent' => '',
             'referrer' => '',
-            'user_id' => '3',
+            'user_id' => '6',
             'applied_at' => now(),
             'image' => '1716048861.jpeg',
         ]

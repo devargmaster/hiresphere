@@ -18,14 +18,7 @@
                     @enderror
                 </div>
 
-                <div class="mb-5">
-                    <label for="username" class="mb-2 block uppercase text-gray-500 font-bold">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Ingresa tu username"
-                           class="border p-3 w-full rounded-lg"/>
-                    @error('username')
-                    <div class="text-red-500">{{ $message }}</div>
-                    @enderror
-                </div>
+       
 
                 <div class="mb-5">
                     <label for="email" class="mb-2 block uppercase text-gray-500 font-bold">Email:</label>

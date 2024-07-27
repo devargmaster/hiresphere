@@ -10,7 +10,7 @@ class RegisterController extends Controller
      * Guarda un nuevo usuario en la base de datos
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {

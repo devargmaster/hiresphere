@@ -54,49 +54,38 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
+        $user = Auth::user();
+        $applicant = $user->applicant;
+
         $request->validate([
-            'phone' => 'required',
-            'address' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',
-            'country' => 'required',
-            'resume' => 'required',
-            'cover_letter' => 'required',
-            'notes' => 'required',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $user = Auth::user();
-        $user->update($request->only('name', 'email'));
-
-        $applicant = $user->applicant;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
 
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-            $name = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/images');
-            $image->move($destinationPath, $name);
-
-            $applicant->image = $name;
-            $applicant->save();
+            $imagePath = $request->file('image')->store('images', 'public');
+            $applicant->image = $imagePath;
         }
 
-        $applicant->update($request->only(
-            'phone',
-            'address',
-            'city',
-            'state',
-            'zip',
-            'country',
-            'resume',
-            'cover_letter',
-            'status',
-            'notes',
-            'referrer'
-        ));
+        $applicant->phone = $request->input('phone', $applicant->phone);
+        $applicant->address = $request->input('address', $applicant->address);
+        $applicant->city = $request->input('city', $applicant->city);
+        $applicant->state = $request->input('state', $applicant->state);
+        $applicant->zip = $request->input('zip', $applicant->zip);
+        $applicant->country = $request->input('country', $applicant->country);
+        $applicant->resume = $request->input('resume', $applicant->resume);
+        $applicant->cover_letter = $request->input('cover_letter', $applicant->cover_letter);
+        $applicant->notes = $request->input('notes', $applicant->notes);
+        $applicant->referrer = $request->input('referrer', $applicant->referrer);
 
-        return redirect()->route('profile.show')->with('status', 'Perfil actualizado con éxito');
+        $user->save();
+        $applicant->save();
+
+        return redirect()->route('profile.show')->with('success', 'Perfil actualizado correctamente.');
     }
     /**
      * Muestra el menú del usuario

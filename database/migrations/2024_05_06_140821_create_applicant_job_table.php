@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('applicant_id')->constrained('applicants','applicant_id')->onDelete('restrict');
             $table->foreignId('job_id')->constrained()->onDelete('restrict');
             $table->timestamps();
+            $table->unique(['job_id', 'applicant_id']);
         });
     }
 

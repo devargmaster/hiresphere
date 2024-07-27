@@ -54,7 +54,7 @@
             <div class="mb-5 bg-white p-6 rounded-lg shadow-xl">
                 <div class="flex flex-col items-center">
                     @if($user->applicant)
-                        <img src="{{ asset('images/' . $user->applicant->image) }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
+                        <img src="{{ asset('storage/images/' . $user->applicant->image) }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
                     @else
                         <img src="{{ asset('img/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
                     @endif

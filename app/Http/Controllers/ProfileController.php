@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 class ProfileController extends Controller
 {
 
@@ -50,7 +52,7 @@ class ProfileController extends Controller
      * Actualiza el perfil del usuario
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request)
     {
@@ -67,9 +69,16 @@ class ProfileController extends Controller
         $user->email = $request->input('email');
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $applicant->image = $imagePath;
+            // Eliminar la imagen anterior si existe
+            if ($applicant->image) {
+                Storage::delete('public/images/' . $applicant->image);
+            }
+
+            // Almacenar la nueva imagen
+            $imagePath = $request->file('image')->store('public/images');
+            $applicant->image = basename($imagePath);
         }
+
 
         $applicant->phone = $request->input('phone', $applicant->phone);
         $applicant->address = $request->input('address', $applicant->address);

@@ -34,6 +34,23 @@ class UpdateApplicantsTableNullableFields extends Migration
     public function down(): void
     {
         Schema::table('applicants', function (Blueprint $table) {
+            // Set default values for columns that are currently null
+            DB::table('applicants')->whereNull('phone')->update(['phone' => '']);
+            DB::table('applicants')->whereNull('address')->update(['address' => '']);
+            DB::table('applicants')->whereNull('city')->update(['city' => '']);
+            DB::table('applicants')->whereNull('state')->update(['state' => '']);
+            DB::table('applicants')->whereNull('zip')->update(['zip' => '']);
+            DB::table('applicants')->whereNull('country')->update(['country' => '']);
+            DB::table('applicants')->whereNull('resume')->update(['resume' => '']);
+            DB::table('applicants')->whereNull('cover_letter')->update(['cover_letter' => '']);
+            DB::table('applicants')->whereNull('status')->update(['status' => '']);
+            DB::table('applicants')->whereNull('notes')->update(['notes' => '']);
+            DB::table('applicants')->whereNull('source')->update(['source' => '']);
+            DB::table('applicants')->whereNull('ip_address')->update(['ip_address' => '']);
+            DB::table('applicants')->whereNull('user_agent')->update(['user_agent' => '']);
+            DB::table('applicants')->whereNull('referrer')->update(['referrer' => '']);
+
+            // Change columns to not nullable
             $table->string('phone')->nullable(false)->change();
             $table->string('address')->nullable(false)->change();
             $table->string('city')->nullable(false)->change();

@@ -34,7 +34,7 @@ class ApplicantSeeder extends Seeder
             'referrer' => '',
             'user_id' => 1,
             'applied_at' => now(),
-            'image' => '1716048861.jpeg',
+            'image' => 'perfil.jpg',
         ],
         [
             'name' => 'Walter White',
@@ -56,7 +56,7 @@ class ApplicantSeeder extends Seeder
             'referrer' => '',
             'user_id' => 2,
             'applied_at' => now(),
-            'image' => '1716048861.jpeg',
+            'image' => 'perfil.jpg',
         ],
         [
             'name' => 'Administrador',
@@ -78,7 +78,7 @@ class ApplicantSeeder extends Seeder
             'referrer' => '',
             'user_id' => '6',
             'applied_at' => now(),
-            'image' => '1716048861.jpeg',
+            'image' => 'perfil.jpg',
         ]
     ]);
     }

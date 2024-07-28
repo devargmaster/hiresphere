@@ -55,7 +55,7 @@
                 <div class="flex flex-col items-center">
                     @if($user->applicant)
                         <img src="{{ $user->applicant->image ? asset('storage/images/' . $user->applicant->image) : asset('images/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
-                            <a href="{{ route('applicant') }}" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Ver Perfil</a>
+                            <a href="{{ route('edit.profile') }}" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Ver Perfil</a>
                     @else
                         <img src="{{ asset('images/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
                     @endif

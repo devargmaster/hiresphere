@@ -9,6 +9,7 @@
                 <img src="{{ asset('images/' . $new->image) }}" alt="Imagen Noticia" class="w-1/5 object-cover h-64 md:h-auto mb-4">
                 {{-- Ajustar alineación del texto del contenido --}}
                 <div class="text-left">
+                    <h2 class="text-3xl text-center font-bold mb-5">{{ $new->brief }}</h2>
                     <p class="mb-3">{{ $new->content }}</p>
                 </div>
             </div>

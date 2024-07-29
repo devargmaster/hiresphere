@@ -28,7 +28,7 @@
                         @if(auth()->user()->role_id == 4)
                             <a href="{{ route('recluiter.jobs.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Empleos</a>
                             <a href="{{ route('recluiter.jobs.applicants') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ver Solicitantes</a>
-                            <a href="{{ route('applicant') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Candidatos</a>
+                            <a href="{{ route('applicants') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Candidatos</a>
                         @endif
                         <a href="{{route ('profile.ChangePassword')}}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Configuración</a>
                         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block mb-4 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Salir</a>
@@ -48,17 +48,20 @@
 
         </div>
 
-        {{-- Contenido principal en otra columna --}}
         <div class="w-full md:w-3/4 p-4">
 
             <div class="mb-5 bg-white p-6 rounded-lg shadow-xl">
                 <div class="flex flex-col items-center">
-                    @if($user->applicant)
-                        <img src="{{ $user->applicant->image ? asset('storage/images/' . $user->applicant->image) : asset('images/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
-                            <a href="{{ route('edit.profile') }}" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Ver Perfil</a>
+                    @if($user->applicant )
+                        @if($user->applicant->image!='perfil.jpg')
+                           <img src="{{ asset('storage/images/' . $user->applicant->image)  }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
+                        @else
+                            <img src="{{ asset('images/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
+                        @endif
                     @else
                         <img src="{{ asset('images/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
                     @endif
+                        <a href="{{ route('edit.profile') }}" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Ver Perfil</a>
                     <h2 class="text-2xl font-bold">{{ Auth::user()->name }}</h2>
                     <p class="text-sm text-gray-600">{{ Auth::user()->email }}</p>
                 </div>
@@ -66,7 +69,6 @@
             @if(auth()->check() && auth()->user()->role_id == 1)
                 <div class="container mx-auto px-4">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <!-- Total de Suscriptores -->
                         <div class="card">
                             <div class="card-body">
                                 <h2 class="card-title font-bold text-center">Total de Suscriptores</h2>

@@ -181,3 +181,5 @@ Route::get('test/mercadopagofail', [\App\Http\Controllers\MercadoPagoController:
     ->name('test.mercadopagofail');
 Route::get('test/mercadopagopending', [\App\Http\Controllers\MercadoPagoController::class, 'pending'])
     ->name('test.mercadopagopending');
+
+Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants.index');

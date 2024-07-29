@@ -10,7 +10,7 @@ class ApplicantController extends Controller
     /**
      * Listado de candidatos
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
      */
 
     public function applicant()
@@ -28,4 +28,23 @@ class ApplicantController extends Controller
         $applicant = Applicant::find($id);
         return view('applicants.show', compact('applicant'));
     }
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+        $roleId = 5;
+        $applicants = Applicant::query()
+            ->whereHas('user', function ($query) use ($roleId) {
+                $query->where('role_id', $roleId);
+            })
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('phone', 'like', "%{$search}%")
+                    ->orWhere('address', 'like', "%{$search}%");
+            })
+            ->get();
+
+        return view('recluiter.applicant', compact('applicants'));
+    }
+
 }

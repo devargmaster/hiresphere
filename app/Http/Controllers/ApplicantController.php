@@ -30,6 +30,7 @@ class ApplicantController extends Controller
     }
     public function index(Request $request)
     {
+        echo 'index';
         $search = $request->input('search');
         $roleId = 5;
         $applicants = Applicant::query()

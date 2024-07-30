@@ -41,7 +41,11 @@ Route::get('suscription',[SuscriptionSignupController::class, 'suscriptions'])
     ->name('suscription');
 
 Route::get('applicant',[ApplicantController::class, 'applicant'])
-    ->name('applicant');
+    ->name('applicants');
+
+Route::get('applicant',[ApplicantController::class, 'index'])
+    ->name('applicants.index');
+
 Route::get('applicant/{id}/edit', [ApplicantController::class, 'edit'])
     ->name('applicant.edit');
 Route::get('/applicants/{id}', [ApplicantController::class, 'show'])
@@ -159,19 +163,8 @@ Route::prefix('recluiter')->group(function () {
         ->whereNumber('id')
         ->middleware('auth');
 });
-
-/**
- * Rutas para el perfil del usuario
- */
-
 Route::get('/profile/change-password', [ProfileController::class, 'ChangePassword'])->name('profile.ChangePassword');
 Route::post('/profile/update-password', [ProfileController::class, 'UpdatePassword'])->name('profile.update-password');
-
-
-/* Rutas para Mercado Pago
- *
- *
- * */
 Route::get('test/mercadopago', [\App\Http\Controllers\MercadoPagoController::class, 'show'])
     ->name('test.mercadopago.show')
     ->middleware('no_admin');
@@ -181,5 +174,3 @@ Route::get('test/mercadopagofail', [\App\Http\Controllers\MercadoPagoController:
     ->name('test.mercadopagofail');
 Route::get('test/mercadopagopending', [\App\Http\Controllers\MercadoPagoController::class, 'pending'])
     ->name('test.mercadopagopending');
-
-Route::get('/applicants', [ApplicantController::class, 'index'])->name('applicants.index');

@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\SuscriptionSignupController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -174,3 +175,10 @@ Route::get('test/mercadopagofail', [\App\Http\Controllers\MercadoPagoController:
     ->name('test.mercadopagofail');
 Route::get('test/mercadopagopending', [\App\Http\Controllers\MercadoPagoController::class, 'pending'])
     ->name('test.mercadopagopending');
+
+
+
+Route::get('statistics/{id}', [StatisticsController::class, 'show'])
+    ->name('statistics.show')
+    ->whereNumber('id')
+    ->middleware('auth');

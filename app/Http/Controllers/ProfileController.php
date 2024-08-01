@@ -132,6 +132,7 @@ class ProfileController extends Controller
      */
     public function show()
     {
+        $freeUsersId = 1;
         $user = auth()->user();
         if ($user->role_id == 1) {
             $totalSubscribers = User::whereNotNull('subscription_type')
@@ -146,7 +147,7 @@ class ProfileController extends Controller
                 ->first();
             $mostPopularPlan = $subscriptionCounts ? $subscriptionCounts->subscription_type : null;
             $subscriptionConversionRate = $this->calculateSubscriptionConversionRate();
-            return view('profile.show', compact('user', 'totalSubscribers', 'freeUsers', 'mostPopularPlan', 'totalRecluiters','totalCandidates', 'subscriptionConversionRate'));
+            return view('profile.show', compact('freeUsersId', 'user', 'totalSubscribers', 'freeUsers', 'mostPopularPlan', 'totalRecluiters','totalCandidates', 'subscriptionConversionRate'));
         }
         return view('profile.show', compact('user'));
     }

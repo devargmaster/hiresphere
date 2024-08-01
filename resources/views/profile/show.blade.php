@@ -78,9 +78,9 @@
 
                         <!-- Usuarios Gratuitos -->
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body"><a href="{{ route('statistics.show', ['id' => $freeUsersId]) }}">
                                 <h2 class="card-title font-bold text-center">Usuarios Gratuitos</h2>
-                                <p class="card-text text-center">{{ $freeUsers }}</p>
+                                    <p class="card-text text-center">{{ $freeUsers }}</p></a>
                             </div>
                         </div>
 

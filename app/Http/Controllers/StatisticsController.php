@@ -38,10 +38,10 @@ class StatisticsController extends Controller
                     'details' => $freeUsers
                 ];
             case 2:
-                // Lógica para el ID 2
+                $suscriptors = User::where('role_id', '!=', 1)->get(['name', 'email']);
                 return [
                     'title' => 'Total de Suscriptores',
-                    'details' => [] // Reemplaza con la lógica adecuada
+                    'details' => $suscriptors
                 ];
             // Agregar más casos según sea necesario
             default:

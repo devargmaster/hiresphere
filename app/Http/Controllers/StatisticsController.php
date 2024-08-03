@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StatisticsController extends Controller
@@ -29,18 +30,25 @@ class StatisticsController extends Controller
      */
     private function getStatisticsById($id)
     {
-        // Aquí iría la lógica para obtener las estadísticas desde la base de datos o cualquier otra fuente
-        // Por ejemplo:
-        // return Statistics::find($id);
-
-        // Ejemplo de datos de prueba
-        return [
-            'totalSubscribers' => 100,
-            'freeUsers' => 50,
-            'mostPopularPlan' => 'Premium',
-            'totalRecluiters' => 10,
-            'totalCandidates' => 200,
-            'subscriptionConversionRate' => 25.5,
-        ];
+        switch ($id) {
+            case 1:
+                $freeUsers = User::where('subscription_type', 'free')->get(['name', 'email']);
+                return [
+                    'title' => 'Usuarios Gratuitos',
+                    'details' => $freeUsers
+                ];
+            case 2:
+                // Lógica para el ID 2
+                return [
+                    'title' => 'Total de Suscriptores',
+                    'details' => [] // Reemplaza con la lógica adecuada
+                ];
+            // Agregar más casos según sea necesario
+            default:
+                return [
+                    'title' => 'Información Genérica',
+                    'details' => []
+                ];
+        }
     }
 }

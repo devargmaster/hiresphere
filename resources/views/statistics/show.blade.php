@@ -1,10 +1,15 @@
 <x-layout>
-    <x-slot:title>Detalle</x-slot:title>
-    @if($id == 1)
-        <p>El ID es 1. Mostrar información específica para el ID 1.</p>
-    @elseif($id == 2)
-        <p>El ID es 2. Mostrar información específica para el ID 2.</p>
+    <x-slot:title>{{ $statistics['title'] }}</x-slot:title>
+
+    <h1>{{ $statistics['title'] }}</h1>
+
+    @if(count($statistics['details']) > 0)
+        <ul>
+            @foreach($statistics['details'] as $user)
+                <li>{{ $user->name }} - {{ $user->email }}</li>
+            @endforeach
+        </ul>
     @else
-        <p>El ID es {{ $id }}. Mostrar información genérica.</p>
+        <p>No hay detalles disponibles para este ID.</p>
     @endif
 </x-layout>

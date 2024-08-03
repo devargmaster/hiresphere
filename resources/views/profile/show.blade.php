@@ -70,9 +70,9 @@
                 <div class="container mx-auto px-4">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body"><a href="{{ route('statistics.show', ['id' => $totalSusbcribers]) }}">
                                 <h2 class="card-title font-bold text-center">Total de Suscriptores</h2>
-                                <p class="card-text text-center">{{ $totalSubscribers }}</p>
+                                <p class="card-text text-center">{{ $totalSubscribers }}</p></a>
                             </div>
                         </div>
 

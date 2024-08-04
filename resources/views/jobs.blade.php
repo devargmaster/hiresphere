@@ -3,17 +3,16 @@
     <div class="flex flex-wrap justify-between md:px-4">
         <div class="w-full md:w-3/12 px-4">
             <div class="mt-6">
-                <h2 class="mb-4 text-lg font-bold text-gray-700">Filtros</h2>
-                <div>
-                    <h3 class="mb-2 text-sm font-semibold text-gray-600">Por ubicación</h3>
-                    <div>
-                        <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-sky-600">
-                            <span class="ml-2">Buenos Aires</span>
-                        </label>
-                    </div>
-
-                </div>
+                <img src="{{ asset('images/publi1.jpg') }}" alt="Publicidad1">
+            </div>
+            <div class="mt-6">
+                <img src="{{ asset('images/publi2.jpg') }}" alt="Publicidad2">
+            </div>
+            <div class="mt-6">
+                <img src="{{ asset('images/publi3.jpg') }}" alt="Publicidad3">
+            </div>
+            <div class="mt-6">
+                <img src="{{ asset('images/publi4.jpg') }}" alt="Publicidad4">
             </div>
         </div>
         <div class="w-full md:w-9/12 px-4">

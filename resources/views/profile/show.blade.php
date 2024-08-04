@@ -61,7 +61,7 @@
                     @else
                         <img src="{{ asset('images/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
                     @endif
-                        
+
                     <h2 class="text-2xl font-bold">{{ Auth::user()->name }}</h2>
                     <p class="text-sm text-gray-600">{{ Auth::user()->email }}</p>
                 </div>

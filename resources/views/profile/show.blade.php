@@ -61,7 +61,7 @@
                     @else
                         <img src="{{ asset('images/perfil.jpg') }}" alt="Foto de perfil" class="h-24 w-24 rounded-full mb-4">
                     @endif
-                        <a href="{{ route('edit.profile') }}" class="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">Ver Perfil</a>
+                        
                     <h2 class="text-2xl font-bold">{{ Auth::user()->name }}</h2>
                     <p class="text-sm text-gray-600">{{ Auth::user()->email }}</p>
                 </div>

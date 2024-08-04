@@ -1,15 +1,30 @@
 <x-layout>
     <x-slot:title>{{ $statistics['title'] }}</x-slot:title>
 
-    <h1>{{ $statistics['title'] }}</h1>
+    <div class="text-center my-4">
+        <h2 class="text-2xl font-bold">{{ $statistics['title'] }}</h2>
+    </div>
 
     @if(count($statistics['details']) > 0)
-        <ul>
-            @foreach($statistics['details'] as $user)
-                <li>{{ $user->name }} - {{ $user->email }}</li>
-            @endforeach
-        </ul>
+        <div class="flex justify-center">
+            <table class="table-auto border-collapse border border-gray-300">
+                <thead>
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">Nombre</th>
+                    <th class="border border-gray-300 px-4 py-2">Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($statistics['details'] as $user)
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">{{ $user->name }}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{ $user->email }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
     @else
-        <p>No hay detalles disponibles para este ID.</p>
+        <p class="text-center">No hay detalles disponibles para este ID.</p>
     @endif
 </x-layout>
